@@ -14,6 +14,21 @@ return new class extends Migration
         Schema::create('event_forms', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            // all required below
+            // Title
+            $table->text('event_title', 200);
+            // Start date
+            $table->date('start_date');
+            // Start time
+            $table->time('start_time');
+            // End date
+            $table->date('end_date');
+            // End Time
+            $table->time('end_time');
+            // Event Description
+            $table->text('description', 1000);
+            // Address/Location
+            $table->string('location', 200);
         });
     }
 
