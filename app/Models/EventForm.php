@@ -17,4 +17,18 @@ class EventForm extends Model
     {
         return $this -> belongsTo(User::class);
     }
+
+    /**
+     * Mass assignment protection. Specify which fields are fillable
+     */
+    protected $fillable = [
+        'event_title',
+        'start_date',
+        'start_time',
+        'end_date',
+        'end_time',
+        'description',
+        'location',
+    ];
+    
 }
