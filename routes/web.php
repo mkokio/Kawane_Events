@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EventFormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    // Because we are using a resource controller, one single Route::resource statement
+    // defines all routes with a conventional URL structure
+Route::resource('eventforms', EventFormController::class)
+    ->only(['index', 'store', 'edit', 'update', 'destroy'])
+    ->middleware(['auth','verified']);
+
 });
 
 require __DIR__.'/auth.php';
