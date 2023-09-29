@@ -35,7 +35,7 @@ return new class extends Migration
             // homepage
             $table->string('homepage', 100)->nullable();
             // event color choice (dropdown list)
-            $table->enum('colors', ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'])->default('18'); //default 'charcoal'
+            $table->enum('colors', ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'])->nullable();
             //1 Lavender
             //2 Sage
             //3 Grape

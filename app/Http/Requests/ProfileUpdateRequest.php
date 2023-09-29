@@ -18,6 +18,14 @@ class ProfileUpdateRequest extends FormRequest
         return [
             'name' => ['string', 'max:255'],
             'email' => ['email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
+            'business_name' => ['nullable', 'string', 'max:100'],
+            'public_name' => ['nullable', 'string', 'max:70'],
+            'phone' => ['nullable', 'string', 'max:30'],
+            'contact_email' => ['nullable', 'email', 'max:50'],
+            'instagram' => ['nullable', 'string', 'max:50'],
+            'twitter' => ['nullable', 'string', 'max:50'],
+            'homepage' => ['nullable', 'string', 'max:100'],
+            'colors' => ['nullable', Rule::in(['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'])],
         ];
     }
 }

@@ -48,6 +48,8 @@ class EventFormController extends Controller
 
         // Redirect to a success page or wherever you need to go after storing the data.
         return redirect()->route('success.route.name');
+
+        // NOTE TO SELF: pseudocode - if user has not select a color, create an event with color 18 (charcoal)
     }
 
     /**
