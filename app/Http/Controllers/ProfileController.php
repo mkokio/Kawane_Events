@@ -23,7 +23,7 @@ class ProfileController extends Controller
     }
 
     /**
-     * Update the user's profile information.
+     * Update the user's profile information. If
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
@@ -32,6 +32,24 @@ class ProfileController extends Controller
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
+
+        // Collection of the form fields that can be set to null
+        $canBeNull = collect([
+            'business_name',
+            'phone',
+            'contact_email',
+            'instagram',
+            'twitter',
+            'homepage',
+            'colors'
+        ]);
+
+        // Set the value of the form fields to null if they are empty
+        $canBeNull->each(function ($field) use ($request) {
+            if ($request->input($field) === '') {
+                $request->user()->$field = null;
+            }
+    });
 
         $request->user()->save();
 

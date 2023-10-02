@@ -1,11 +1,11 @@
 <section>
     <header>
-        <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Profile Information') }}
+        <h2 class="text-lg font-medium text-black">
+            {{ __('Log-In Information') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __("Update your account's profile information and email address.") }}
+            {{ __("Update your account's log-in information and email address.") }}
         </p>
     </header>
 
@@ -46,6 +46,77 @@
                 </div>
             @endif
         </div>
+        
+        <br />
+        <hr />
+        <br />
+
+        <!-- Additional (optional) profile information to be auto-appended to event description -->
+        <header>
+            <h2 class="text-lg font-medium text-black">
+                {{ __('Public Information') }}
+            </h2>
+    
+            <p class="mt-1 text-sm text-gray-600">
+                {{ __("All the information below will automatically be appendend to each Google Calendar Event description.") }}
+            </p>
+        </header>
+
+        <div>
+            <x-input-label for="public_name" :value="__('Event Creator\'s Name (Required)')" />
+            <x-text-input placeholder="山本さくら" id="public_name" name="public_name" type="text" class="mt-1 block w-full" 
+            :value="old('public_name', $user->public_name)" required autofocus autocomplete="public_name" />
+            <x-input-error class="mt-2" :messages="$errors->get('public_name')" />
+        </div>
+        
+        <div>
+            <x-input-label for="business_name" :value="__('Business Name')" />
+            <x-text-input placeholder="カフェさくら" id="business_name" name="business_name" type="text" class="mt-1 block w-full" 
+            :value="old('business_name', $user->business_name)" autofocus autocomplete="business_name" nullable  />
+        </div>
+
+        <div>
+            <x-input-label for="phone" :value="__('Phone Number')" />
+            <x-text-input placeholder="09012345678" id="phone" name="phone" type="text" class="mt-1 block w-full" 
+            :value="old('phone', $user->phone)" nullable autofocus autocomplete="phone" />
+        </div>
+
+        <div>
+            <x-input-label for="contact_email" :value="__('Contact email')" />
+            <x-text-input placeholder="sakura@mail.jp" id="contact_email" name="contact_email" type="text" class="mt-1 block w-full" 
+            :value="old('contact_email', $user->contact_email)" nullable autofocus autocomplete="contact_email" />
+            <x-input-error class="mt-2" :messages="$errors->get('contact_email')" />
+        </div>
+
+        <div>
+            <x-input-label for="instagram" :value="__('Instagram @')" />
+            <x-text-input placeholder="sakura_insta" id="instagram" name="instagram" type="text" class="mt-1 block w-full" 
+            :value="old('instagram', $user->instagram)" nullable autofocus autocomplete="instagram" />
+            <x-input-error class="mt-2" :messages="$errors->get('instagram')" />
+        </div>
+
+        <div>
+            <x-input-label for="twitter" :value="__('Twitter @')" />
+            <x-text-input placeholder="sakura_tweets" id="twitter" name="twitter" type="text" class="mt-1 block w-full" 
+            :value="old('twitter', $user->twitter)" nullable autofocus autocomplete="twitter" />
+            <x-input-error class="mt-2" :messages="$errors->get('twitter')" />
+        </div>
+
+        <div>
+            <x-input-label for="homepage" :value="__('Homepage')" />
+            <x-text-input placeholder="www.town.kawanehon.shizuoka.jp" id="homepage" name="homepage" type="text" class="mt-1 block w-full" 
+            :value="old('homepage', $user->homepage)" nullable autofocus autocomplete="homepage" />
+            <x-input-error class="mt-2" :messages="$errors->get('homepage')" />
+        </div>
+
+        <!-- Create a Color selector
+        <div>
+            <x-input-label for="colors" :value="__('Calendar Event Color')" />
+            <x-text-input id="colors" name="colors" type="text" class="mt-1 block w-full" 
+            :value="old('colors', $user->colors)" nullable autofocus autocomplete="colors" />
+            <x-input-error class="mt-2" :messages="$errors->get('colors')" />
+        </div>
+        -->
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>

@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Change the color of placeholder text for all form inputs */
+input::placeholder {
+    color: #ffc5c5;
+}
