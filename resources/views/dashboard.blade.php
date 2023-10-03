@@ -10,7 +10,7 @@
             <div class="p-6 bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="text-center text-gray-900">
                     <!-- hotlink 'profile' to the update profile page -->
-                    {{ __("Before creating an event, remember to update your profile if you have any changes!") }}
+                    {{  __("Before creating an event, make sure you have updated your ")  }} <a href='/profile' class="custom-link">profile</a>.
                     <hr />
                 </div>
 
@@ -31,17 +31,23 @@
 
                 <div>
                     <x-input-label for="event_title" :value="__('Event Title')" />
-                    <x-text-input placeholder="川根本町まつり" id="event_title" name="event_title" type="text" class="mt-1 block w-full" 
+                    <x-text-input placeholder="川根本町まつり" id="event_title" name="event_title" type="text" class="mt-1 block w-3/4" 
                     required autofocus autocomplete="event_title" />
                     <x-input-error class="mt-2" :messages="$errors->get('event_title')" />
                 </div>
 
                 <div>
-                    <!--<x-input-field name="description" for="description" label="description:" type="text" rows="5" maxlength="1000"></x-input-field>
-                    -->
                     <x-input-label for="description" :value="__('Description')" />
-                    <x-text-input placeholder="楽しもう！" id="description" name="description" type="text" class="mt-1 block w-full" 
-                    required autofocus autocomplete="description" />
+                    <textarea
+                        id="description"
+                        name="description"
+                        class="mt-1 block w-3/4 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
+                        rows="5"
+                        placeholder="楽しもう!"
+                        required
+                        autofocus
+                        autocomplete="description"
+                    ></textarea>
                     <x-input-error class="mt-2" :messages="$errors->get('description')" />
                 </div>
 
@@ -68,7 +74,7 @@
 
                 <div>
                     <x-input-label for="location" :value="__('Location')" />
-                    <x-text-input placeholder="山本さくら" id="location" name="location" type="text" class="mt-1 block w-full" 
+                    <x-text-input placeholder="山本さくら" id="location" name="location" type="text" class="mt-1 block w-3/4" 
                     required autofocus autocomplete="location" />
                     <x-input-error class="mt-2" :messages="$errors->get('location')" />
                 </div>

@@ -1,0 +1,10 @@
+/* Change the color of placeholder (ghost) text for all form inputs */
+input::placeholder {
+    color: #ffc5c5;
+}
+
+ /* Change the style of hyperlink texts */
+.custom-link {
+    color: #ff6600;
+    text-decoration: underline;
+}
