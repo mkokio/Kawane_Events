@@ -10,7 +10,7 @@
             <div class="p-6 bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="text-center text-gray-900">
                     <!-- hotlink 'profile' to the update profile page -->
-                    {{  __("Before creating an event, make sure you have updated your ")  }} <a href='/profile' class="custom-link">profile</a>.
+                    {{  __("Before creating an event, make sure you have updated your ")  }} <a href='/profile' class="custom-link">{{ __('profile') }}</a>.
                     <hr />
                 </div>
 
@@ -27,7 +27,7 @@
 
                 <form method="post" action="{{ route('eventforms.store') }}" class="mt-6 space-y-6">
                     @csrf
-                    @method('patch')
+                    @method('post')
 
                 <div>
                     <x-input-label for="event_title" :value="__('Event Title')" />

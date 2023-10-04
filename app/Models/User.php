@@ -55,7 +55,7 @@ class User extends Authenticatable
     /**
      * Define database relationships. One User may have many events
      */
-    public function user(): HasMany
+    public function eventforms(): HasMany
     {
         return $this -> hasMany(EventForm::class);
     }

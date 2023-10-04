@@ -19,20 +19,14 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            // additional info (all optional)
-            // business name
+            
+            // Additional info (all optional)
             $table->string('business_name', 100)->nullable();
-            // public name
             $table->string('public_name', 70)->nullable(); 
-            // phone number 
             $table->string('phone', 30)->nullable();
-            // email
             $table->string('contact_email', 50)->nullable();
-            // instagram handle
             $table->string('instagram', 50)->nullable(); 
-            // twitter handle
             $table->string('twitter', 50)->nullable();
-            // homepage
             $table->string('homepage', 100)->nullable();
             // event color choice (dropdown list)
             $table->enum('colors', ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'])->nullable();

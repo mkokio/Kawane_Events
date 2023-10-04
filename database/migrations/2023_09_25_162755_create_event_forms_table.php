@@ -13,21 +13,18 @@ return new class extends Migration
     {
         Schema::create('event_forms', function (Blueprint $table) {
             $table->id();
+            // Define the foreign key relationship between EventForm and User models.
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+            // Automatically create two timestamp columns: created_at and updated_at
             $table->timestamps();
-            // all required below
-            // Title
+            
+            // All required below for Google Calendar event create
             $table->text('event_title', 200);
-            // Start date
             $table->date('start_date');
-            // Start time
             $table->time('start_time');
-            // End date
             $table->date('end_date');
-            // End Time
             $table->time('end_time');
-            // Event Description
             $table->text('description', 1000);
-            // Address/Location
             $table->string('location', 200);
         });
     }

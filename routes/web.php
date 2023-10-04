@@ -28,6 +28,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    // Route for the success screen
+Route::get('/success', [EventFormController::class, 'success'])->name('eventcreatesuccess');
+
     // Because we are using a resource controller, one single Route::resource statement
     // defines all routes with a conventional URL structure
 Route::resource('eventforms', EventFormController::class)
