@@ -5,7 +5,7 @@
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __("Update your account's log-in information and email address.") }}
+            {{  __('Update your account\'s log-in information and email address.') }}
         </p>
     </header>
 
@@ -24,7 +24,7 @@
         </div>
 
         <div>
-            <x-input-label for="email" :value="__('Email')" />
+            <x-input-label for="email" :value="__('Email Address')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
@@ -58,7 +58,7 @@
             </h2>
     
             <p class="mt-1 text-sm text-gray-600">
-                {{ __("All the information below will automatically be appendend to each Google Calendar Event description.") }}
+                {{ __('All the information below will automatically be appendend to each Google Calendar Event description.') }}
             </p>
         </header>
 

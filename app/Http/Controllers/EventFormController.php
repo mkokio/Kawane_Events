@@ -70,16 +70,16 @@ class EventFormController extends Controller
 
         // Create Additional Description
         $additionalDescription =
-        "\n" .
-        $request->input('location') . "\n" . 
-        $businessName . "\n" .
-        $publicName . "\n" .
-        $phoneNumber . "\n" .
-        $contactEmail . "\n" .
-        '<a href="https://twitter.com/' . $twi . '" target="_blank">' . $twi . ' on Twitter</a>' . "\n" .
-        '<a href="https://instagram.com/' . $insta . '" target="_blank">' . $insta . ' on Instagram</a>' . "\n" .
-        '<a href="https://' . $homePage . '" target="_blank">' . __('Homepage') . '</a>';
-    
+            "\n" .
+            e($request->input('location')) . "\n" . 
+            e($businessName) . "\n" .
+            e($publicName) . "\n" .
+            e($phoneNumber) . "\n" .
+            e($contactEmail) . "\n" .
+            '<a href="https://twitter.com/' . e($twi) . '" target="_blank">' . e($twi) . ' on Twitter</a>' . "\n" .
+            '<a href="https://instagram.com/' . e($insta) . '" target="_blank">' . e($insta) . ' on Instagram</a>' . "\n" .
+            '<a href="https://' . e($homePage) . '" target="_blank">' . __('Homepage') . '</a>';
+            
 
         // Parse date and time input (with Carbon library) from the request and adjust the timezone to Asia/Tokyo
         $startDate = Carbon::parse($request->input('start_date'))->setTimezone('Asia/Tokyo');
