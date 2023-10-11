@@ -35,7 +35,7 @@
                 </div>
             @endif
             <div>
-                {{ __('Welcome to the Kawane Events Creator portal. From here, you can register, log in, and create events for the publicly shared Kawane Events Google Calendar for all to see.') }}
+                {{ __('Welcome to the Kawane Events Creator portal. From here, you can register, log in, and create events on the public Kawane Events Google Calendar for all to see.') }}
             </div>    
         </div>
         

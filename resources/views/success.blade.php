@@ -15,7 +15,7 @@
                     </h2>
             
                     <p class="mt-1 text-sm text-gray-600">
-                        {{ __('Congratulations! You created an event on the ') }} <a href='https://calendar.google.com/calendar/embed?src=7443e660ebfca5091d0e33fc49fd7747b8d0a7bef40e6a34427689721e881291%40group.calendar.google.com&ctz=Asia%2FTokyo' class="custom-link" target="_blank">{{ __('Kawane Events Public Google Calendar') }}</a>.
+                        {{ __('Congratulations! You created an event on the ') }} <a href="{{ env('GOOGLE_CALENDAR_PUBLIC_URL') }}" class="custom-link" target="_blank">{{ __('Kawane Events Public Google Calendar') }}</a>.
                     </p>
                     <br />
                     <hr />
