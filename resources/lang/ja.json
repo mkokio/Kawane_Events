@@ -22,6 +22,7 @@
     "Dashboard": "ダッシュボード",																									
     "Delete Account": "アカウントを削除",																									
     "Description": "説明",																									
+    "Email": "メールアドレス",
     "Email Address": "メールアドレス",																									
     "Email Password Reset Link": "パスワードリセットリンクをメールで送信",																									
     "End Date": "終了日",																									
@@ -72,7 +73,7 @@
     "Send Password Reset Link": "パスワードリセットリンクを送信",																									
     "Start Date": "開始日",																									
     "Start Time": "開始時刻",																									
-    "Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another.": "登録ありがとうございます！はじめる前に、メールで送られたリンクをクリックしてメールアドレスを確認できますか？メールを受信しなかった場合、別のメールを送信いたします。",																									
+    "Check your email inbox! Click the link we sent you to verify your mail. If you didn't get it, we can resend it. Thanks for signing up!": "電子メール受信トレイを確認してください！送信したリンクをクリックしてメールを確認してください。受信トレイにメールが届いていない場合、再送信できます。サインアップしていただき、ありがとうございます！",																									
     "This is a secure area of the application. Please confirm your password before continuing.": "これはアプリケーションのセキュアエリアです。続行する前にパスワードを確認してください。",																									
     "Toggle navigation": "ナビゲーションの切り替え",																									
     "Twitter @": "ツイター@",																									
@@ -83,5 +84,10 @@
     "Would you like to ": "新しいイベントを",																									
     "create another event": "作成しますか",																									
     "You are logged in!": "ログインしました！",																									
-    "Your email address is unverified.": "メールアドレスは未確認です。"																								
+    "Your email address is unverified.": "メールアドレスは未確認です。",	
+    
+    "Verify Email Address": "メールアドレスの確認",
+    "Click the button below to verify your email address.": "メールアドレスを確認するには、以下のボタンをクリックしてください。",																							
+    "Hello!": "ハロー",
+    "Thank you from Kawane Events.": "ありがとございます！ 川根本町イベント"
 }

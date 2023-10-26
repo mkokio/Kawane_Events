@@ -4,6 +4,7 @@ use Illuminate\Support\Str;
 
 return [
 
+    'locale' => null,
     /*
     |--------------------------------------------------------------------------
     | Default Session Driver

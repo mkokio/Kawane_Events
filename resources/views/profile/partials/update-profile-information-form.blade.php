@@ -76,7 +76,7 @@
 
         <br />
         <hr />
-        <br />
+        
         
         <header>
             <h2 class="text-lg font-medium text-black">

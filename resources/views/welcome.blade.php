@@ -32,9 +32,12 @@
                     @endauth
                       
                             <a href="{{ env('GOOGLE_CALENDAR_PUBLIC_URL') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"">{{  __('Events Calendar') }}</a>
+                            
                 </div>
+                
             @endif
-            <div>
+            
+
                 {{ __('Welcome to the Kawane Events Creator portal. From here, you can register, log in, and create events on the public Kawane Events Google Calendar for all to see.') }}
             </div>    
         </div>
@@ -44,7 +47,5 @@
                 &copy; マーク
             </a>
         </div>
-            
-        
     </body>
 </html>

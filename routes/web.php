@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventFormController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +35,30 @@ Route::middleware('auth')->group(function () {
     // Route for the success screen
     Route::get('/success', [EventFormController::class, 'success'])->name('eventcreatesuccess');
 
+    Route::get('language/{locale}', function ($locale) {
+        app()->setLocale($locale);
+        session()->put('locale', $locale);
+        return redirect()->back();
+    });
+
+
+
+/*
+    Route::get('/switchto/{locale}', [LanguageController::class, 'changeLocale'])->name('changeLocale');
+    Route::get('/switchto/{locale}', function (string $locale) {
+        if (! in_array($locale, ['en', 'ja'])) {
+            abort(400);
+        }
+        App::setLocale($locale);
+        // dd(app()->getLocale()); // check the locale
+        return redirect()->back();
+        })
+        ->name('changeLocale');
+
+
+    Route::get('/switchto/{locale}', [LanguageController::class, 'changeLanguage'])->name('changeLocale');
+*/
+
     // Because we are using a resource controller, one single Route::resource statement
     // defines all routes with a conventional URL structure
     Route::resource('eventforms', EventFormController::class)
@@ -54,6 +80,6 @@ Route::middleware('auth')->group(function () {
         return back()->with('message', 'Verification link sent!');
     })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-});
+    });
 
 require __DIR__.'/auth.php';

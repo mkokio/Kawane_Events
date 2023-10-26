@@ -48,7 +48,11 @@
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>
+                        <hr />
+                    @include('partials/language_switcher')
                     </x-slot>
+
+                    
                 </x-dropdown>
             </div>
 
@@ -94,6 +98,8 @@
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
                 </form>
+                <hr />
+                @include('partials/language_switcher')
             </div>
         </div>
     </div>
