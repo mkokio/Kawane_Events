@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('twitter', 50)->nullable();
             $table->string('homepage', 100)->nullable();
             // event color choice (dropdown list)
-            $table->enum('colors', ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'])->nullable();
+            $table->enum('colors', ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'])->default('1');
             //1 Lavender
             //2 Sage
             //3 Grape

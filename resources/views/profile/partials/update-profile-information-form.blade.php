@@ -65,19 +65,25 @@
             <x-input-error class="mt-2" :messages="$errors->get('homepage')" />
         </div>
 
-        <!-- Create a Color selector
+        <!--A list of the colors to iterate through -->
+        @php
+        $colors = ['#a4bdfc', '#7ae7bf', '#dbadff', '#ff887c', '#fbd75b', '#ffb878', '#46d6db', '#e1e1e1', '#5484ed', '#51b749'];
+        @endphp
+
         <div>
-            <x-input-label for="colors" :value="__('Calendar Event Color')" />
-            <x-text-input id="colors" name="colors" type="text" class="mt-1 block w-full" 
-            :value="old('colors', $user->colors)" nullable autofocus autocomplete="colors" />
-            <x-input-error class="mt-2" :messages="$errors->get('colors')" />
+            <x-input-label for="color" :value="__('Color Selector')" />
+
+            @for ($i = 1; $i <= 10; $i++)
+            <input type="radio" id="{{ $i }}" name="colorselector" value="{{ $i }}" class="ml-3"
+                style="background-color: {{ $colors[$i-1] }}; color: white; padding: 4px 8px; border-radius: 3px; border: 1px solid #ccc;"
+                @if (old('colors', $user->colors) == $i || ($i === 1 && $user->colors === null)) checked @endif
+            />
+            @endfor
         </div>
-        -->
 
         <br />
         <hr />
-        
-        
+                
         <header>
             <h2 class="text-lg font-medium text-black">
                 {{ __('Log-In Information') }}
@@ -121,8 +127,6 @@
 
 
         <!-- Additional (optional) profile information to be auto-appended to event description -->
-        
-
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 

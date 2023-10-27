@@ -13,10 +13,10 @@
 
         <!-- Scripts -->
         @viteReactRefresh
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-        <!-- Custom Styling 
-        <link rel="stylesheet" href="{{ asset('css/custom.css') }}">-->
+        <!-- Custom Styling --> 
+         <link href="resources/css/custom.css" rel="stylesheet" type="text/css">
 
     </head>
     <body class="font-sans antialiased">
@@ -38,4 +38,21 @@
             </main>
         </div>
     </body>
+<style>
+    /* Change the color of placeholder (ghost) text for all form inputs */
+input::placeholder {
+    color: #ffc5c5;
+}
+
+/* Change the color of placeholder (ghost) text for textarea */
+textarea::placeholder {
+    color: #ffc5c5;
+}
+
+ /* Change the style of hyperlink texts */
+.custom-link {
+    color: #ff6600;
+    text-decoration: underline;
+}
+</style>
 </html>

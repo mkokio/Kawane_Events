@@ -23,33 +23,28 @@ class ProfileController extends Controller
     }
 
     /**
-     * Update the user's profile information. If
+     * Update the user's profile information.
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        $user = $request->user();
+        
+        // Update the user's profile information
+        $user->fill($request->validated());
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        // Handle the "colorselector" field and update the "colors" field in the database
+        $colorselector = $request->input('colorselector');
+
+        // Ensure the selected color is within the allowed range
+        if ($colorselector >= 1 && $colorselector <= 10) {
+            $user->colors = $colorselector;
+        } else {
+            $user->colors = 1; // Set to a default color (e.g., Lavender)
         }
 
-        // Collection of the form fields that can be set to null
-        $canBeNull = collect([
-            'business_name',
-            'phone',
-            'contact_email',
-            'instagram',
-            'twitter',
-            'homepage',
-            'colors'
-        ]);
-
-        // Set the value of the form fields to null if they are empty
-        $canBeNull->each(function ($field) use ($request) {
-            if ($request->input($field) === '') {
-                $request->user()->$field = null;
-            }
-    });
+        if ($user->isDirty('email')) {
+            $user->email_verified_at = null;
+        }
 
         $request->user()->save();
 

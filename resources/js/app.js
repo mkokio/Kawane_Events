@@ -13,3 +13,5 @@ import './bootstrap';
  */
 
 import './components/Example';
+
+import './css/custom.css';

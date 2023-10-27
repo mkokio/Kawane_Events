@@ -68,6 +68,7 @@ class EventFormController extends Controller
         $insta = $user->instagram;
         $twi = $user->twitter;
         $homePage = $user->homepage;
+        $selectedcolor = $user->colors;
 
         // Create Additional Description
         $additionalDescription =
@@ -97,7 +98,7 @@ class EventFormController extends Controller
             'startDateTime' => $startDateTime,
             'endDateTime' => $endDateTime,
             'description' => $request->input('description') . $additionalDescription,
-            'colorId' => '6', // Orange color
+            'colorId' => $selectedcolor,
             'visibility' => 'default',
             'status' => 'confirmed',
         ]);
