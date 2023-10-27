@@ -15,14 +15,30 @@
                     </h2>
             
                     <p class="mt-1 text-sm text-gray-600">
-                        {{ __('Congratulations! You created an event on the ') }} <a href="{{ env('GOOGLE_CALENDAR_PUBLIC_URL') }}" class="custom-link" target="_blank">{{ __('Kawane Events Public Google Calendar') }}</a>.
+                        {{ __('Congratulations! You created an event on the ') }} <a href="{{ env('GOOGLE_CALENDAR_PUBLIC_URL') }}" target="_blank" class="custom-link" target="_blank">{{ __('Kawane Events Public Google Calendar') }}</a>.
                     </p>
+                    <br />
+                    <div class="flex justify-center">
+                        <img class="border rounded mx-auto" src="{{ asset('KawaneEventsCalendarQR.png') }}" alt="Kawane Events Calendar QR Code">
+                    </div>
+                    
                     <br />
                     <hr />
                     <br />
                     <p class="mt-1 text-sm text-gray-600">
                         {{ __('Would you like to ') }} <a href='/dashboard' class="custom-link">{{ __('create another event') }}</a>?
                     </p>
+                    <br />
+                    <hr />
+                    <br />
+                    <p class="mt-1 text-sm text-gray-600">
+                        {{ __('Assistance: ') }}
+                        <a href="mailto:{{ env('MAIL_USERNAME') }}?subject=Kawane%20Event%20Help">
+                            {{ env('MAIL_USERNAME') }}
+                        </a>
+                    </p>
+                    
+
 
                 </header>
 

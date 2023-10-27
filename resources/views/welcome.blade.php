@@ -31,21 +31,21 @@
                         @endif
                     @endauth
                       
-                            <a href="{{ env('GOOGLE_CALENDAR_PUBLIC_URL') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"">{{  __('Events Calendar') }}</a>
+                            <a href="{{ env('GOOGLE_CALENDAR_PUBLIC_URL') }}" target="_blank" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"">{{  __('Events Calendar') }}</a>
                             
                 </div>
                 
             @endif
             
-
+            <div class="min-h-screen flex items-center justify-center p-6">
                 {{ __('Welcome to the Kawane Events Creator portal. From here, you can register, log in, and create events on the public Kawane Events Google Calendar for all to see.') }}
             </div>    
         </div>
-        
         <div class="absolute bottom-0 right-0 p-6 text-right z-10 text-gray-500 dark:text-gray-400">
             <a href="https://www.marccocchio.com" class="hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
                 &copy; マーク
-            </a>
+            </a><br />
+            <a href="{{ asset('kawaneeventsbitcoinqr.jpg') }}">{{ __('Donate') }}</a>
         </div>
     </body>
 </html>
