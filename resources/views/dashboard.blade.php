@@ -21,7 +21,7 @@
                     </h2>
             
                     <p class="mt-1 text-sm text-gray-600">
-                        {{ __('A Google Calendar Event will be created on Kawane Event shared Calender.') }}
+                        {{ __('A Google Calendar Event will be created on Kawane Event shared Calendar.') }}
                     </p>
                 </header>
 
