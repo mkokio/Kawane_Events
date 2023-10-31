@@ -19,6 +19,11 @@
                     </p>
                     <br />
                     <div class="flex justify-center">
+                        <a href="{{ env('GOOGLE_CALENDAR_PUBLIC_URL') }}" target="_blank">
+                            <img class="border rounded mx-auto w-32" src="{{ asset('KWElogoSmall.png') }}" alt="Kawane Events Calendar QR Code">
+                        </a>
+                    </div>
+                    <div class="flex justify-center">
                         <img class="border rounded mx-auto" src="{{ asset('KawaneEventsCalendarQR.png') }}" alt="Kawane Events Calendar QR Code">
                     </div>
                     
