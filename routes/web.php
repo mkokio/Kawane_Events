@@ -41,24 +41,6 @@ Route::middleware('auth')->group(function () {
         return redirect()->back();
     });
 
-
-
-/*
-    Route::get('/switchto/{locale}', [LanguageController::class, 'changeLocale'])->name('changeLocale');
-    Route::get('/switchto/{locale}', function (string $locale) {
-        if (! in_array($locale, ['en', 'ja'])) {
-            abort(400);
-        }
-        App::setLocale($locale);
-        // dd(app()->getLocale()); // check the locale
-        return redirect()->back();
-        })
-        ->name('changeLocale');
-
-
-    Route::get('/switchto/{locale}', [LanguageController::class, 'changeLanguage'])->name('changeLocale');
-*/
-
     // Because we are using a resource controller, one single Route::resource statement
     // defines all routes with a conventional URL structure
     Route::resource('eventforms', EventFormController::class)

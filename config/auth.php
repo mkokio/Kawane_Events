@@ -94,8 +94,8 @@ return [
         'users' => [
             'provider' => 'users',
             'table' => 'password_reset_tokens',
-            'expire' => 60,
-            'throttle' => 60,
+            'expire' => 120, // The number of minutes to expire a password reset request.
+            'throttle' => 2, // The number of minutes before another password reset request can be made.
         ],
     ],
 
