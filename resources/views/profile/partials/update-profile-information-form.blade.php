@@ -21,7 +21,7 @@
         <div>
             <x-input-label for="public_name" :value="__('Event Creator\'s Name (Required)')" />
             <x-text-input placeholder="山本さくら" id="public_name" name="public_name" type="text" class="mt-1 block w-full" 
-            :value="old('public_name', $user->public_name)" required autofocus autocomplete="public_name" />
+                :value="old('public_name', $user->public_name ?? $user->name)" required autofocus autocomplete="{{ $user->public_name ? 'off' : $user->name }}" />
             <x-input-error class="mt-2" :messages="$errors->get('public_name')" />
         </div>
         
