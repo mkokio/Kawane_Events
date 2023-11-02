@@ -18,7 +18,7 @@ class EventFormController extends Controller
      */
     public function index():view
     {
-        return view(eventforms.index);
+        return view('eventforms.index');
     }
 
     /**
@@ -35,6 +35,13 @@ class EventFormController extends Controller
     public function success()
     {
         return view('success');
+    }
+
+    /**
+     * "Create a link" method
+     */
+    function createLink($url, $text) {
+        return '<a href="' . e($url) . '" target="_blank">' . e($text) . '</a>';
     }
 
     /**
@@ -71,7 +78,7 @@ class EventFormController extends Controller
         $selectedcolor = $user->colors;
 
         // Create Additional Description
-        $additionalDescription =
+        /*$additionalDescription =
             "\n" .
             e($request->input('location')) . "\n" . 
             e($businessName) . "\n" .
@@ -81,7 +88,27 @@ class EventFormController extends Controller
             '<a href="https://twitter.com/' . e($twi) . '" target="_blank">' . e($twi) . ' on Twitter</a>' . "\n" .
             '<a href="https://instagram.com/' . e($insta) . '" target="_blank">' . e($insta) . ' on Instagram</a>' . "\n" .
             '<a href="https://' . e($homePage) . '" target="_blank">' . __('Homepage') . '</a>';
-            
+        */
+        $additionalDescriptionItems = [];
+            if ($request->input('location')) {
+                $additionalDescriptionItems[] = e($request->input('location'));
+            }  
+            if ($businessName) {
+                $additionalDescriptionItems[] = e($businessName);
+            }
+            if ($publicName) {
+                $additionalDescriptionItems[] = e($publicName);
+            }
+            if ($twi) {
+                $additionalDescriptionItems[] = $this->createLink('https://twitter.com/' . $twi, $twi . ' on Twitter');
+            }
+            if ($insta) {
+                $additionalDescriptionItems[] = $this->createLink('https://instagram.com/' . $insta, $insta . ' on Instagram');
+            }
+            if ($homePage) {
+                $additionalDescriptionItems[] = $this->createLink($homePage, __('Homepage'));
+            }
+        $additionalDescription = "\n" . implode("\n", $additionalDescriptionItems);
 
         // Parse date and time input (with Carbon library) from the request and adjust the timezone to Asia/Tokyo
         $startDate = Carbon::parse($request->input('start_date'))->setTimezone('Asia/Tokyo');
@@ -102,7 +129,6 @@ class EventFormController extends Controller
             'visibility' => 'default',
             'status' => 'confirmed',
         ]);
-        
 
 
         // Redirect to a success page or wherever you need to go after storing the data.
