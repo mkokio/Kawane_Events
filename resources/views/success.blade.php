@@ -50,6 +50,12 @@
                 
 
             </div>
+            <br />
+            <div class="p-6 bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="mh-2/3 flex items-center justify-center p-5">
+                    <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23bdbdbd&ctz=Asia%2FTokyo&title=%E5%B7%9D%E6%A0%B9%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88&showTitle=1&showPrint=0&showTabs=0&showCalendars=0&hl=ja&showTz=0&src=a2F3YW5lZXZlbnRzQGdtYWlsLmNvbQ&color=%23616161" style="border-width:0" width="600" height="600" frameborder="0" scrolling="no"></iframe>
+                </div>
+            </div>
         </div>
     </div>
 </x-app-layout>

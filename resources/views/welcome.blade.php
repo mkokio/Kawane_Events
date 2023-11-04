@@ -16,33 +16,40 @@
         </style>
     </head>
     <body class="antialiased">
-        <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+        <div class="dark:bg-gray-100 selection:bg-red-500 selection:text-white">
             @if (Route::has('login'))
                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                     @auth
-                        <a href="{{ url('/profile') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{  __('Profile') }}</a>
+                        <a href="{{ url('/profile') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{  __('Profile') }}</a>
                         
-                        <a href="{{ url('/dashboard') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{  __('Create Event') }}</a>    
+                        <a href="{{ url('/dashboard') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{  __('Create Event') }}</a>    
                     @else
-                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{  __('Log In') }}</a>
+                        <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{  __('Log In') }}</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{  __('Register') }}</a>  
+                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">{{  __('Register') }}</a>  
                         @endif
                     @endauth
                       
-                            <a href="{{ env('GOOGLE_CALENDAR_PUBLIC_URL') }}" target="_blank" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"">{{  __('Events Calendar') }}</a>
+                            <a href="{{ env('GOOGLE_CALENDAR_PUBLIC_URL') }}" target="_blank" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500"">{{  __('Events Calendar') }}</a>
                             
                 </div>
                 
             @endif
             
-            <div class="min-h-screen flex items-center justify-center p-6">
-                {{ __('Welcome to the Kawane Events Creator portal. From here, you can register, log in, and create events on the public Kawane Events Google Calendar for all to see.') }}
-            </div>    
+            <div class="h-2/3 flex items-center justify-center p-6">
+                <div class="text-center mb-6">
+                    <br />
+                    {{ __('Welcome to the Kawane Events Creator portal. From here, you can register, log in, and create events on the public Kawane Events Google Calendar for all to see.') }}
+                </div>
+            </div>
         </div>
-        <div class="absolute bottom-0 right-0 p-6 text-right z-10 text-gray-500 dark:text-gray-400">
-            <a href="https://www.marccocchio.com" class="hover:text-gray-700 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
+            <div class="mh-2/3 flex items-center justify-center p-5">
+            <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23bdbdbd&ctz=Asia%2FTokyo&title=%E5%B7%9D%E6%A0%B9%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88&showTitle=1&showPrint=0&showTabs=0&showCalendars=0&hl=ja&showTz=0&src=a2F3YW5lZXZlbnRzQGdtYWlsLmNvbQ&color=%23616161" style="border-width:0" width="600" height="600" frameborder="0" scrolling="no"></iframe>
+            </div>
+        
+        <div class="absolute bottom-0 right-0 p-6 text-right z-10 text-gray-500 dark:text-white-400">
+            <a href="https://www.marccocchio.com" class="hover:text-gray-700  focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">
                 &copy; マーク
             </a><br />
             <a href="{{ asset('kawaneeventsbitcoinqr.jpg') }}">{{ __('Donate') }}</a>
