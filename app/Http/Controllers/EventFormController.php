@@ -59,14 +59,14 @@ class EventFormController extends Controller
             'location' => 'required|max:200', // Location is required and a maximum of 200 characters.
         ]);
     
-        // Your logic to store the validated data in the database can go here.
+        // YStore the validated data in the database
         $request->user()->eventforms()->create($validated);
         // user() is from Laravel's built-in authentication system; user must be logged in
         // ->eventforms() has a relationship of "BelongsTo" with the user model
         // ->create($validated) creates a new event form record in the database of authenticated user.
 
 
-        // Fetch the user's phone number from the authenticated user
+        // Fetch the user's info from the authenticated user
         $user = $request->user();
         $businessName = $user->business_name;
         $publicName = $user->public_name;
@@ -77,18 +77,7 @@ class EventFormController extends Controller
         $homePage = $user->homepage;
         $selectedcolor = $user->colors;
 
-        // Create Additional Description
-        /*$additionalDescription =
-            "\n" .
-            e($request->input('location')) . "\n" . 
-            e($businessName) . "\n" .
-            e($publicName) . "\n" .
-            e($phoneNumber) . "\n" .
-            e($contactEmail) . "\n" .
-            '<a href="https://twitter.com/' . e($twi) . '" target="_blank">' . e($twi) . ' on Twitter</a>' . "\n" .
-            '<a href="https://instagram.com/' . e($insta) . '" target="_blank">' . e($insta) . ' on Instagram</a>' . "\n" .
-            '<a href="https://' . e($homePage) . '" target="_blank">' . __('Homepage') . '</a>';
-        */
+        // Add user's info to this list if it exists
         $additionalDescriptionItems = [];
             if ($request->input('location')) {
                 $additionalDescriptionItems[] = e($request->input('location'));
@@ -99,6 +88,9 @@ class EventFormController extends Controller
             if ($publicName) {
                 $additionalDescriptionItems[] = e($publicName);
             }
+            if ($phoneNumber) {
+                $additionalDescriptionItems[] = e($phoneNumber);
+            }
             if ($twi) {
                 $additionalDescriptionItems[] = $this->createLink('https://twitter.com/' . $twi, $twi . ' on Twitter');
             }
@@ -108,6 +100,7 @@ class EventFormController extends Controller
             if ($homePage) {
                 $additionalDescriptionItems[] = $this->createLink($homePage, __('Homepage'));
             }
+        // Format this list to be added onto the input('description')
         $additionalDescription = "\n" . implode("\n", $additionalDescriptionItems);
 
         // Parse date and time input (with Carbon library) from the request and adjust the timezone to Asia/Tokyo
@@ -130,11 +123,8 @@ class EventFormController extends Controller
             'status' => 'confirmed',
         ]);
 
-
         // Redirect to a success page or wherever you need to go after storing the data.
         return redirect()->route('eventcreatesuccess');
-
-        // NOTE TO SELF: pseudocode - if user has not select a color, create an event with color 18 (charcoal)
     }
 
     /**
