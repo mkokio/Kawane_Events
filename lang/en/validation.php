@@ -164,8 +164,8 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'password' => [
+            'min' => 'Password must have 6 or more characters.',
         ],
     ],
 

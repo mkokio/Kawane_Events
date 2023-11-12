@@ -16,7 +16,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <!-- Custom Styling --> 
-         <link href="resources/css/custom.css" rel="stylesheet" type="text/css">
+    
 
     </head>
     <body class="font-sans antialiased">
