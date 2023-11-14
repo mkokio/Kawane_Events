@@ -70,16 +70,22 @@
         $colors = ['#a4bdfc', '#7ae7bf', '#dbadff', '#ff887c', '#fbd75b', '#ffb878', '#46d6db', '#e1e1e1', '#5484ed', '#51b749'];
         @endphp
 
-        <div>
-            <x-input-label for="color" :value="__('Color Selector')" />
+<div>
+    <x-input-label for="color" :value="__('Color Selector')" />
 
-            @for ($i = 1; $i <= 10; $i++)
-            <input type="radio" id="{{ $i }}" name="colorselector" value="{{ $i }}" class="ml-3"
-                style="background-color: {{ $colors[$i-1] }}; color: white; padding: 4px 8px; border-radius: 3px; border: 1px solid #ccc;"
-                @if (old('colors', $user->colors) == $i || ($i === 1 && $user->colors === null)) checked @endif
-            />
-            @endfor
-        </div>
+    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+        @for ($i = 1; $i <= 10; $i++)
+        <input type="radio" class="btn-check visually-hidden" name="colorselector" id="color{{ $i }}" autocomplete="off" value="{{ $i }}"
+            style="background-color: {{ $colors[$i-1] }};"
+            @if (old('colors', $user->colors) == $i || ($i === 1 && $user->colors === null)) checked @endif
+        />
+        <label class="btn btn-outline-primary @if(old('colors', $user->colors) == $i) active border-dark fw-bold @endif" for="color{{ $i }}" style="background-color: {{ $colors[$i-1] }};"></label>
+        @endfor
+    </div>
+</div>
+
+
+
 
         <br />
         <hr />
