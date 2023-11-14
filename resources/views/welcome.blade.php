@@ -14,25 +14,32 @@
 
     </head>
     <body class="antialiased">
-            @if (Route::has('login'))
-                <div class="text-end">
-                    @auth
-                        <a href="{{ url('/profile') }}" class="link-primary  p-3">{{  __('Profile') }}</a>
-                        
-                        <a href="{{ url('/dashboard') }}" class="link-primary  p-3">{{  __('Create Event') }}</a>    
-                    @else
-                        <a href="{{ route('login') }}" class="link-primary  p-3">{{  __('Log In') }}</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="link-primary p-3">{{  __('Register') }}</a>  
-                        @endif
-                    @endauth
-                      
-                            <a href="{{ env('GOOGLE_CALENDAR_PUBLIC_URL') }}" target="_blank" class="link-info  p-3 ">{{  __('Events Calendar') }}</a>
-                            
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <div class="float-left">
+                    <div style="transform: scale(0.6);">
+                        <x-application-logo />
+                    </div>
                 </div>
-                
-            @endif
+            
+                <div class="float-right">
+                    @if (Route::has('login'))
+                        @auth
+                            <a href="{{ url('/profile') }}" class="btn btn-secondary p-1">{{ __('Profile') }}</a>
+                            <a href="{{ url('/dashboard') }}" class="btn btn-secondary p-1">{{ __('Create Event') }}</a>
+                        @else
+                            <a href="{{ route('login') }}" class="btn btn-secondary p-1">{{ __('Log In') }}</a>
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}" class="btn btn-primary p-1">{{ __('Register') }}</a>
+                            @endif
+                        @endauth
+            
+                        <a href="{{ env('GOOGLE_CALENDAR_PUBLIC_URL') }}" target="_blank" class="btn btn-outline-secondary">{{ __('Events Calendar') }}</a>
+                    @endif
+                </div>
+            </div>
+        </nav>
+        
             
             <div class="w-100 col-md-6 mt-1 px-4 py-4 bg-white shadow-lg overflow-hidden rounded mx-auto" style="max-width: 700px;">
                     <div class="text-center">
@@ -49,6 +56,5 @@
                 &copy; マーク
             </a><br />
             <a href="{{ asset('kawaneeventsbitcoinqr.jpg') }}" class="link-info">{{ __('Donate') }}</a>
-        
     </body>
 </html>

@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <x-application-logo />
+        <div style="transform: scale(0.6);">
+            <x-application-logo />
+        </div>
 
         <div class="dropdown">
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -18,7 +20,7 @@
                         </button>
                     </form>
                 </li>
-                <hr />
+                <li class="dropdown-divider"></li>
                 @include('partials/language_switcher')
             </ul>
         </div>
