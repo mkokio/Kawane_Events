@@ -18,77 +18,69 @@
             </p>
         </header>
 
-        <div>
+        
             <x-input-label for="public_name" :value="__('Event Creator\'s Name (Required)')" />
             <x-text-input placeholder="山本さくら" id="public_name" name="public_name" type="text" class="mt-1 block w-full" 
                 :value="old('public_name', $user->public_name ?? $user->name)" required autofocus autocomplete="{{ $user->public_name ? 'off' : $user->name }}" />
             <x-input-error class="mt-2" :messages="$errors->get('public_name')" />
-        </div>
         
-        <div>
+        
             <x-input-label for="business_name" :value="__('Business Name')" />
             <x-text-input placeholder="カフェさくら" id="business_name" name="business_name" type="text" class="mt-1 block w-full" 
             :value="old('business_name', $user->business_name)" autofocus autocomplete="business_name" nullable  />
-        </div>
 
-        <div>
             <x-input-label for="phone" :value="__('Phone Number')" />
             <x-text-input placeholder="09012345678" id="phone" name="phone" type="text" class="mt-1 block w-full" 
             :value="old('phone', $user->phone)" nullable autofocus autocomplete="phone" />
-        </div>
 
-        <div>
             <x-input-label for="contact_email" :value="__('Contact email')" />
             <x-text-input placeholder="sakura@mail.jp" id="contact_email" name="contact_email" type="text" class="mt-1 block w-full" 
             :value="old('contact_email', $user->contact_email)" nullable autofocus autocomplete="contact_email" />
             <x-input-error class="mt-2" :messages="$errors->get('contact_email')" />
-        </div>
 
-        <div>
             <x-input-label for="instagram" :value="__('Instagram @')" />
             <x-text-input placeholder="sakura_insta" id="instagram" name="instagram" type="text" class="mt-1 block w-full" 
             :value="old('instagram', $user->instagram)" nullable autofocus autocomplete="instagram" />
             <x-input-error class="mt-2" :messages="$errors->get('instagram')" />
-        </div>
 
-        <div>
             <x-input-label for="twitter" :value="__('Twitter @')" />
-            <x-text-input placeholder="sakura_tweets" id="twitter" name="twitter" type="text" class="mt-1 block w-full" 
-            :value="old('twitter', $user->twitter)" nullable autofocus autocomplete="twitter" />
+            <div class="input-group ">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                <x-text-input placeholder="sakura_tweets" id="twitter" name="twitter" type="text" class="" 
+                :value="old('twitter', $user->twitter)" nullable autofocus autocomplete="twitter" />
+            </div>
             <x-input-error class="mt-2" :messages="$errors->get('twitter')" />
-        </div>
 
-        <div>
             <x-input-label for="homepage" :value="__('Homepage')" />
             <x-text-input placeholder="www.town.kawanehon.shizuoka.jp" id="homepage" name="homepage" type="text" class="mt-1 block w-full" 
             :value="old('homepage', $user->homepage)" nullable autofocus autocomplete="homepage" />
             <x-input-error class="mt-2" :messages="$errors->get('homepage')" />
-        </div>
 
-        <!--A list of the colors to iterate through -->
-        @php
-        $colors = ['#a4bdfc', '#7ae7bf', '#dbadff', '#ff887c', '#fbd75b', '#ffb878', '#46d6db', '#e1e1e1', '#5484ed', '#51b749'];
-        @endphp
+            <!--A list of the colors to iterate through -->
+            @php
+            $colors = ['#a4bdfc', '#7ae7bf', '#dbadff', '#ff887c', '#fbd75b', '#ffb878', '#46d6db', '#e1e1e1', '#5484ed', '#51b749'];
+            @endphp
 
-<div>
-    <x-input-label for="color" :value="__('Color Selector')" />
+            <div>
+                <x-input-label for="color" :value="__('Color Selector')" /><br />
+                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                    @for ($i = 1; $i <= 10; $i++)
+                    <input type="radio"
+                        class="btn-check visually-hidden"
+                        name="colorselector"
+                        id="color_{{ $i }}"
+                        value="{{ $i }}"
+                        autocomplete="off"
+                        style="display: none;"
+                        @if (old('colors', $user->colors) == $i || ($i === 1 && $user->colors === null)) checked @endif
+                    />
+                    <label class="btn" style="background-color: {{ $colors[$i-1] }};" for="color_{{ $i }}"></label>
+                    @endfor
+                </div>
+            </div>
 
-    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-        @for ($i = 1; $i <= 10; $i++)
-        <input type="radio" class="btn-check visually-hidden" name="colorselector" id="color{{ $i }}" autocomplete="off" value="{{ $i }}"
-            style="background-color: {{ $colors[$i-1] }};"
-            @if (old('colors', $user->colors) == $i || ($i === 1 && $user->colors === null)) checked @endif
-        />
-        <label class="btn btn-outline-primary @if(old('colors', $user->colors) == $i) active border-dark fw-bold @endif" for="color{{ $i }}" style="background-color: {{ $colors[$i-1] }};"></label>
-        @endfor
-    </div>
-</div>
-
-
-
-
-        <br />
-        <hr />
+            <br />
+            <hr />
                 
         <header>
             <h2 class="text-lg font-medium text-black">

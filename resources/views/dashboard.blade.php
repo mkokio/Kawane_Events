@@ -6,79 +6,65 @@
     </x-slot>
 
     <div class="py-12">
-                <div class="text-center text-gray-900">
-                    <!-- hyperlink 'profile' to the update profile page -->
-                    {{  __('Before creating an event, make sure you have updated your ')  }} <a href='/profile' class="custom-link">{{ __('profile.') }}</a>
-                    <hr />
-                </div>
+        <div class="text-center text-gray-900">
+            <!-- hyperlink 'profile' to the update profile page -->
+            {{  __('Before creating an event, make sure you have updated your ')  }} <a href='/profile' class="custom-link">{{ __('profile.') }}</a>
+            <hr />
+        </div>
 
-                
-                <header>
-                    <h2 class="text-lg font-medium text-black">
-                        {{  __('Event Details') }}
-                    </h2>
-            
-                    <p class="mt-1 text-sm text-gray-600">
-                        {{ __('A Google Calendar Event will be created on Kawane Event shared Calendar.') }}
-                    </p>
-                </header>
+        
+        <header>
+            <h2 class="text-lg font-medium text-black">
+                {{  __('Event Details') }}
+            </h2>
+    
+            <p class="mt-1 text-sm text-gray-600">
+                {{ __('A Google Calendar Event will be created on Kawane Event shared Calendar.') }}
+            </p>
+        </header>
 
-                <form method="post" action="{{ route('eventforms.store') }}" class="mt-6 space-y-6">
-                    @csrf
-                    @method('post')
+        <form method="post" action="{{ route('eventforms.store') }}">
+            @csrf
+            @method('post')
 
-                <div>
-                    <x-input-label for="event_title" value="{{ __('Event Title') }}" />
-                    <x-text-input placeholder="川根本町まつり" id="event_title" name="event_title" type="text" class="mt-1 block w-3/4" 
-                    required autofocus autocomplete="event_title" />
-                    <x-input-error class="mt-2" :messages="$errors->get('event_title')" />
-                </div>
+            <x-input-label for="event_title" value="{{ __('Event Title') }}" />
+            <x-text-input placeholder="川根本町まつり" id="event_title" name="event_title" type="text" 
+            required autofocus autocomplete="event_title" />
+            <x-input-error class="mt-2" :messages="$errors->get('event_title')" />
 
-                <div>
-                    <x-input-label for="description" value="{{ __('Description') }}" />
-                    <textarea
-                        id="description"
-                        name="description"
-                        class="mt-1 block w-3/4 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
-                        rows="5"
-                        placeholder="楽しもう!"
-                        required
-                        autofocus
-                        autocomplete="description"
-                    ></textarea>
-                    <x-input-error class="mt-2" :messages="$errors->get('description')" />
-                </div>
+            <x-input-label for="description" value="{{ __('Description') }}" />
+            <textarea
+                id="description"
+                name="description"
+                class="form-control"
+                rows="5"
+                placeholder="楽しもう!"
+                required
+                autofocus
+                autocomplete="description"
+            ></textarea>
+            <x-input-error class="mt-2" :messages="$errors->get('description')" />
 
-                <div>
-                    <x-input-date name="start_date" for="start_date" label="{{ __('Start Date') }}" type="date" required></x-input-date>
-                    <x-input-error class="mt-2" :messages="$errors->get('start_date')" />
-                </div>
+            <x-input-date name="start_date" for="start_date" label="{{ __('Start Date') }}" type="date" required></x-input-date>
+            <x-input-error class="mt-2" :messages="$errors->get('start_date')" />
 
-                <div>
-                    <x-input-time for="start_time" label="{{ __('Start Time') }}" required />
-                    <x-input-error class="mt-2" :messages="$errors->get('start_time')" />
-                </div>
+            <x-input-time for="start_time" label="{{ __('Start Time') }}" required />
+            <x-input-error class="mt-2" :messages="$errors->get('start_time')" />
 
-                <div>
-                    <x-input-date name="end_date" for="end_date" label="{{ __('End Date') }}" type="date" required></x-input-date>
-                    <x-input-error class="mt-2" :messages="$errors->get('end_date')" />
-                </div>
+            <x-input-date name="end_date" for="end_date" label="{{ __('End Date') }}" type="date" required></x-input-date>
+            <x-input-error class="mt-2" :messages="$errors->get('end_date')" />
 
-                <div>
-                    <x-input-time for="end_time" label="{{ __('End Time') }}" required />
-                    <x-input-error class="mt-2" :messages="$errors->get('end_time')" />
-                </div>
+            <x-input-time for="end_time" label="{{ __('End Time') }}" required />
+            <x-input-error class="mt-2" :messages="$errors->get('end_time')" />
 
-                <div>
-                    <x-input-label for="location" value="{{ __('Location') }}" />
-                    <x-text-input placeholder="山本さくら" id="location" name="location" type="text" class="mt-1 block w-3/4" 
-                    required autofocus autocomplete="location" />
-                    <x-input-error class="mt-2" :messages="$errors->get('location')" />
-                </div>
-               
-                <x-primary-button>{{ __('Create Event') }}</x-primary-button>
+            <x-input-label for="location" value="{{ __('Location') }}" />
+            <x-text-input placeholder="山本さくら" id="location" name="location" type="text" 
+            required autofocus autocomplete="location" />
+            <x-input-error class="mt-2" :messages="$errors->get('location')" />
+        
+        <x-primary-button>{{ __('Create Event') }}</x-primary-button>
 
-            </form>
+    </form>
 
 
     </div>
