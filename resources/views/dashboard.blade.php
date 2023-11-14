@@ -1,13 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2>
             {{ __('Create Event') }}
         </h2>
     </x-slot>
 
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="p-6 bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="text-center text-gray-900">
                     <!-- hyperlink 'profile' to the update profile page -->
                     {{  __('Before creating an event, make sure you have updated your ')  }} <a href='/profile' class="custom-link">{{ __('profile.') }}</a>
@@ -82,7 +80,6 @@
 
             </form>
 
-            </div>
-        </div>
+
     </div>
 </x-app-layout>
