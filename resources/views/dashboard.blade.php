@@ -12,8 +12,6 @@
             <hr />
         </div>
 
-        
-        <header>
             <h2 class="text-lg font-medium text-black">
                 {{  __('Event Details') }}
             </h2>
@@ -21,7 +19,6 @@
             <p class="mt-1 text-sm text-gray-600">
                 {{ __('A Google Calendar Event will be created on Kawane Event shared Calendar.') }}
             </p>
-        </header>
 
         <form method="post" action="{{ route('eventforms.store') }}">
             @csrf

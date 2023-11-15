@@ -13,7 +13,7 @@
     <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
         @csrf
         @method('patch')
-        <header>
+        
             <h2 class="text-lg font-medium text-black">
                 {{ __('Public Information') }}
             </h2>
@@ -21,7 +21,7 @@
             <p class="mt-1 text-sm text-gray-600">
                 {{ __('All the information below will automatically be appendend to each Google Calendar Event description.') }}
             </p>
-        </header>
+        
 
         
             <x-input-label for="public_name" :value="__('Event Creator\'s Name (Required)')" />
@@ -85,9 +85,9 @@
             </div>
 
             <br />
-            <hr />
+
                 
-        <header>
+        
             <h2 class="text-lg font-medium text-black">
                 {{ __('Log-In Information') }}
             </h2>
@@ -95,7 +95,7 @@
             <p class="mt-1 text-sm text-gray-600">
                 {{  __('Update your account\'s log-in information and email address.') }}
             </p>
-        </header>
+        
 
         <div>
             <x-input-label for="name" :value="__('Name')" />

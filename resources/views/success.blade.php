@@ -6,9 +6,11 @@
     </x-slot>
 
     <div class="py-12">
+        <!--
         <h2 class="text-lg font-medium text-black">
             {{ __('Event Created') }}
         </h2>
+        -->
 
         <p class="mt-1 text-sm text-gray-600">
             {{ __('Congratulations! You created an event on the ') }} <a href="{{ env('GOOGLE_CALENDAR_PUBLIC_URL') }}" target="_blank" class="custom-link" target="_blank">{{ __('Kawane Events Public Google Calendar') }}</a>.
