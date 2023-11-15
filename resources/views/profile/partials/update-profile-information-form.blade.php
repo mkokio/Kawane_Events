@@ -18,7 +18,7 @@
                 {{ __('Public Information') }}
             </h2>
     
-            <p class="mt-1 text-sm text-gray-600">
+            <p>
                 {{ __('All the information below will automatically be appendend to each Google Calendar Event description.') }}
             </p>
         
@@ -46,7 +46,7 @@
             <x-input-label for="instagram" :value="__('Instagram')" />
             <div class="input-group ">
                 <span class="input-group-text" id="basic-addon1">@</span>
-                <x-text-input laceholder="sakura_insta" id="instagram" name="instagram" type="text" class="" 
+                <x-text-input placeholder="sakura_insta" id="instagram" name="instagram" type="text" class="" 
                 :value="old('instagram', $user->instagram)" nullable autofocus autocomplete="instagram" />
             <x-input-error class="mt-2" :messages="$errors->get('instagram')" />
             </div>
@@ -91,7 +91,7 @@
                 {{ __('Log-In Information') }}
             </h2>
     
-            <p class="mt-1 text-sm text-gray-600">
+            <p>
                 {{  __('Update your account\'s log-in information and email address.') }}
             </p>
         -->

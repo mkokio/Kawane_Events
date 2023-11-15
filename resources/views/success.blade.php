@@ -12,7 +12,7 @@
         </h2>
         -->
 
-        <p class="mt-1 text-sm text-gray-600">
+        <p>
             {{ __('Congratulations! You created an event on the ') }} <a href="{{ env('GOOGLE_CALENDAR_PUBLIC_URL') }}" target="_blank" class="custom-link" target="_blank">{{ __('Kawane Events Public Google Calendar') }}</a>.
         </p>
         <br />
@@ -28,7 +28,7 @@
         <br />
         <hr />
         <br />
-        <p class="mt-1 text-sm text-gray-600">
+        <p>
             {{ __('Would you like to ') }} <a href='/dashboard' class="custom-link">{{ __('create another event') }}</a>?
         </p>
         <br />
@@ -40,7 +40,7 @@
 
         <hr />
         <br />
-        <p class="mt-1 text-sm text-gray-600">
+        <p>
         {{ __('Assistance: ') }}
         <a href="mailto:{{ env('MAIL_USERNAME') }}?subject=Kawane%20Event%20Help">
         {{ env('MAIL_USERNAME') }}
