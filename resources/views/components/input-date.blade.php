@@ -1,5 +1,4 @@
-<label for="{{ $for }}" class="form-label mt-3">{{ __($label) }}</label>
-<br/>
+<label for="{{ $for }}" class="form-label mt-4">{{ __($label) }}</label>
 <input type="{{ $type }}" id="{{ $for }}" name="{{ $for }}" class="form-control" {{ $attributes }}>
 
 

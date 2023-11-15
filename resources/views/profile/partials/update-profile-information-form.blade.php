@@ -43,12 +43,15 @@
             :value="old('contact_email', $user->contact_email)" nullable autofocus autocomplete="contact_email" />
             <x-input-error class="mt-2" :messages="$errors->get('contact_email')" />
 
-            <x-input-label for="instagram" :value="__('Instagram @')" />
-            <x-text-input placeholder="sakura_insta" id="instagram" name="instagram" type="text" class="mt-1 block w-full" 
-            :value="old('instagram', $user->instagram)" nullable autofocus autocomplete="instagram" />
+            <x-input-label for="instagram" :value="__('Instagram')" />
+            <div class="input-group ">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                <x-text-input laceholder="sakura_insta" id="instagram" name="instagram" type="text" class="" 
+                :value="old('instagram', $user->instagram)" nullable autofocus autocomplete="instagram" />
             <x-input-error class="mt-2" :messages="$errors->get('instagram')" />
+            </div>
 
-            <x-input-label for="twitter" :value="__('Twitter @')" />
+            <x-input-label for="twitter" :value="__('Twitter')" />
             <div class="input-group ">
                 <span class="input-group-text" id="basic-addon1">@</span>
                 <x-text-input placeholder="sakura_tweets" id="twitter" name="twitter" type="text" class="" 
@@ -82,12 +85,8 @@
                     <label class="btn" style="background-color: {{ $colors[$i-1] }};" for="color_{{ $i }}"></label>
                     @endfor
                 </div>
-            </div>
-
-            <br />
-
-                
-        
+            </div>                
+        <!--
             <h2 class="text-lg font-medium text-black">
                 {{ __('Log-In Information') }}
             </h2>
@@ -95,10 +94,10 @@
             <p class="mt-1 text-sm text-gray-600">
                 {{  __('Update your account\'s log-in information and email address.') }}
             </p>
-        
+        -->
 
         <div>
-            <x-input-label for="name" :value="__('Name')" />
+            <x-input-label for="name" :value="__('Login Name')" />
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
@@ -110,21 +109,24 @@
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
                 <div>
-                    <p class="text-sm mt-2 text-gray-800">
+                    <p class="font-italic">
                         {{ __('Your email address is unverified.') }}
-
-                        <button form="send-verification" class="btn btn-link text-danger">
-                            {{ __('Click here to re-send the verification email.') }}
-                        </button>
+                        <form method="POST" action="{{ route('verification.send') }}" id="send-verification" class="d-inline">
+                            @csrf
+                            <button type="submit" class="btn btn-link text-danger" form="send-verification">
+                                {{ __('Click here to re-send the verification email.') }}
+                            </button>
+                        </form>
                     </p>
-
+            
                     @if (session('status') === 'verification-link-sent')
-                        <p class="mt-2 font-medium text-sm text-green-600">
+                        <p class="mt-2 font-weight-bold text-sm text-success">
                             {{ __('A new verification link has been sent to your email address.') }}
                         </p>
                     @endif
                 </div>
             @endif
+            
         </div>
         
 

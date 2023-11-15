@@ -38,7 +38,7 @@
     "Forgot Your Password?": "パスワードをお忘れですか？",																									
     "Homepage": "ホームページ",																									
     "If you did not receive the email": "メールを受信しなかった場合",																									
-    "Instagram @": "インスタグラム@",																									
+    "Instagram": "インスタグラム",																									
     "Kawane Event Creator": "川根イベントクリエーター",																									
     "Kawane Events Public Google Calendar": "川根イベント公開Googleカレンダー",																									
     "Location": "場所",																									
@@ -76,7 +76,7 @@
     "Check your email inbox! Click the link we sent you to verify your mail. If you didn't get it, we can resend it. Thanks for signing up!": "電子メール受信トレイを確認してください！送信したリンクをクリックしてメールを確認してください。受信トレイにメールが届いていない場合、再送信できます。サインアップしていただき、ありがとうございます！",																									
     "This is a secure area of the application. Please confirm your password before continuing.": "これはアプリケーションのセキュアエリアです。続行する前にパスワードを確認してください。",																									
     "Toggle navigation": "ナビゲーションの切り替え",																									
-    "Twitter @": "ツイター@",																									
+    "Twitter": "ツイター",																									
     "Update Password": "パスワードを更新",																									
     "Update your account's log-in information and email address.": "アカウントのログイン情報とメールアドレスを更新してください。",																									
     "Verify Your Email Address": "メールアドレスを確認",																									
@@ -94,5 +94,6 @@
     "You are receiving this email because we received a password reset request for your account.": "アカウントのパスワードリセットリクエストを受け取ったため、このメールを受信しています。",
     "If you did not request a password reset, no further action is required.": "パスワードリセットのリクエストを送信していない場合、追加のアクションは不要です。",
     "Would you like to make an ": "イベントを",
-    "event?": "作成しましょうか"
+    "event?": "作成しましょうか",
+    "Login Name": "ログイン名前"
 }

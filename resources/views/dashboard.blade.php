@@ -6,17 +6,17 @@
     </x-slot>
 
     <div class="py-12">
-        <div class="text-center text-gray-900">
+        <div class="text-center">
             <!-- hyperlink 'profile' to the update profile page -->
             {{  __('Before creating an event, make sure you have updated your ')  }} <a href='/profile' class="custom-link">{{ __('profile.') }}</a>
             <hr />
         </div>
 
-            <h2 class="text-lg font-medium text-black">
+            <h2>
                 {{  __('Event Details') }}
             </h2>
     
-            <p class="mt-1 text-sm text-gray-600">
+            <p>
                 {{ __('A Google Calendar Event will be created on Kawane Event shared Calendar.') }}
             </p>
 
@@ -33,7 +33,7 @@
             <textarea
                 id="description"
                 name="description"
-                class="form-control"
+                class="form-control mt-1"
                 rows="5"
                 placeholder="楽しもう!"
                 required
