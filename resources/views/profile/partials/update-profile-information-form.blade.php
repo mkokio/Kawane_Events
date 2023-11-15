@@ -1,5 +1,10 @@
 <section>
 
+    <div class="text-center text-gray-900">
+        <!-- hyperlink 'profile' to the update profile page -->
+        {{  __('Would you like to make an ')  }} <a href='/dashboard' class="custom-link">{{ __('event?') }}</a>
+        <hr />
+    </div>
 
     <form id="send-verification" method="post" action="{{ route('verification.send') }}">
         @csrf
