@@ -10,7 +10,7 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form id="profile-form" method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
         @csrf
         @method('patch')
         
@@ -90,11 +90,12 @@
             <h2 class="text-lg font-medium text-black">
                 {{ __('Log-In Information') }}
             </h2>
-    
-            <p>
-                {{  __('Update your account\'s log-in information and email address.') }}
-            </p>
         -->
+            <br />
+            
+                {{  __('Update your account\'s log-in information and email address.') }}
+            
+        
 
         <div>
             <x-input-label for="name" :value="__('Login Name')" />

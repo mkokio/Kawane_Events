@@ -1,1 +1,1 @@
-<img src="{{ asset('logo80.png') }}" alt="{{ __('Gradient Tea Leaf') }}" title="お茶" class="img-fluid">
+<a href="/"><img src="{{ asset('logo80.png') }}" alt="{{ __('Gradient Tea Leaf') }}" title="お茶" class="img-fluid"></a>

@@ -1,11 +1,12 @@
 <x-app-layout>
+    
     <x-slot name="header">
         <h2>
             {{ __('Create Event') }}
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-6">
         <div class="text-center">
             <!-- hyperlink 'profile' to the update profile page -->
             {{  __('Before creating an event, make sure you have updated your ')  }} <a href='/profile' class="custom-link">{{ __('profile.') }}</a>
@@ -20,7 +21,7 @@
                 {{ __('A Google Calendar Event will be created on Kawane Event shared Calendar.') }}
             </p>
 
-        <form method="post" action="{{ route('eventforms.store') }}">
+        <form id="event-form" method="post" action="{{ route('eventforms.store') }}">
             @csrf
             @method('post')
 
@@ -33,7 +34,7 @@
             <textarea
                 id="description"
                 name="description"
-                class="form-control mt-1"
+                class="form-control"
                 rows="5"
                 placeholder="楽しもう!"
                 required
@@ -65,7 +66,58 @@
         <x-primary-button>{{ __('Create Event') }}</x-primary-button>
 
     </form>
-
-
+    <div id="loading" class="loading">
+        <img src="{{ asset('logo80.png') }}" alt="Creating Event..." class="breathing-image" />
     </div>
+</div>
+
+</div>
+    <style>
+/* Define your breathing animation */
+@keyframes breathe {
+    0%, 100% { transform: scale(0.4); }
+    50% { transform: scale(1); }
+}
+
+/* Apply the animation to the image */
+.breathing-image {
+    animation: breathe 1s infinite ease-in-out;
+}
+
+/* Center the spinner within the content area */
+.py-12 {
+    position: relative;
+    min-height: 100vh; /* Ensure the content area fills the viewport */
+}
+
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none; /* Hide the spinner initially */
+}
+    </style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById('event-form');
+    const loading = document.getElementById('loading');
+    
+    if (form) {
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Show loading animation
+            loading.style.display = 'block';
+
+            // Simulate form submission after a delay
+            setTimeout(function () {
+                form.submit();
+            }, 1500); // Replace with your logic or remove this timeout
+        });
+    }
+});
+</script>
+    
 </x-app-layout>

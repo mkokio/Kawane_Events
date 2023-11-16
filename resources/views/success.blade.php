@@ -48,5 +48,52 @@
         </p>
         <hr />
     </div>
+</div>
+<!-- Success message and loading animation initially hidden -->
+<div class="loading" style="display: none;">
+    <img src="{{ asset('logo80.png') }}" alt="Loading..." class="spin-image" />
+</div>
+
+<div class="loaded content" style="display: none;">
+    <p class="text-sm text-gray-600">{{ __('Event created successfully.') }}</p>
+</div>
+
+<!-- CSS -->
+<style>
+    /* Spinner animation styles */
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .spin-image {
+        animation: spin 1s infinite linear;
+    }
+</style>
+
+<!-- JavaScript -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById('event-form');
+
+        if (form) {
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                document.querySelector('.loading').style.display = 'block';
+                document.querySelector('.loaded').style.display = 'none';
+
+                // Simulate form submission
+                setTimeout(function () {
+                    // Assuming successful submission after a delay
+                    document.querySelector('.loading').style.display = 'none';
+                    document.querySelector('.loaded').style.display = 'block';
+                    
+                    // Redirect to eventcreatesuccess route after successful submission
+                    window.location.href = "{{ route('eventcreatesuccess') }}"; // Replace with your actual route
+                }, 2000); // Simulated 2-second delay, replace with your logic
+            });
+        }
+    });
+</script>
 
 </x-app-layout>

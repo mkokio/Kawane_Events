@@ -21,9 +21,9 @@
 
         <!-- Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
     </head>
     <body class="font-sans antialiased">
+         
         <div class="container-fluid">
             @include('layouts.navigation')
 
@@ -40,32 +40,9 @@
             <main class="w-100 col-md-6 mt-1 px-4 py-4 bg-white shadow-lg overflow-hidden rounded mx-auto" style="max-width: 700px;">
                 {{ $slot }}
             </main>
-        </div>
+        </div>          
     </body>
-
 <!-- Bootstrap JavaScript and Popper.js from CDN -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+z6W5/KZlU2u8z2n2pHf2b5N4A4PjB4fl6S6v5wM" crossorigin="anonymous"></script>
-<script>var myModal = new bootstrap.Modal(document.getElementById('confirm-user-deletion'));
-</script>
-
-    <!--
-<style>
-    /* Change the color of placeholder (ghost) text for all form inputs */
-input::placeholder {
-    color: #ffc5c5;
-}
-
-/* Change the color of placeholder (ghost) text for textarea */
-textarea::placeholder {
-    color: #ffc5c5;
-}
-
- /* Change the style of hyperlink texts */
-.custom-link {
-    color: #ff6600;
-    text-decoration: underline;
-}
-</style>
--->
 </html>
