@@ -1,9 +1,6 @@
 <x-app-layout>
-    
     <x-slot name="header">
-        <h2>
-            {{ __('Create Event') }}
-        </h2>
+        <h2>{{ __('Create Event') }}</h2>
     </x-slot>
 
     <div class="py-6">
@@ -13,13 +10,8 @@
             <hr />
         </div>
 
-            <h2>
-                {{  __('Event Details') }}
-            </h2>
-    
-            <p>
-                {{ __('A Google Calendar Event will be created on Kawane Event shared Calendar.') }}
-            </p>
+            <h2>{{  __('Event Details') }}</h2>
+            <p>{{ __('A Google Calendar Event will be created on Kawane Event shared Calendar.') }}</p>
 
         <form id="event-form" method="post" action="{{ route('eventforms.store') }}">
             @csrf
@@ -41,83 +33,77 @@
                 autofocus
                 autocomplete="description"
             ></textarea>
-            <x-input-error class="mt-2" :messages="$errors->get('description')" />
-
-            
+            <x-input-error class="mt-2" :messages="$errors->get('description')" />          
                 
-                        <x-input-date name="start_date" for="start_date" label="{{ __('Start Date') }}" type="date" required></x-input-date>
-                        <x-input-error class="mt-2" :messages="$errors->get('start_date')" />
+            <x-input-date name="start_date" for="start_date" label="{{ __('Start Date') }}" type="date" required></x-input-date>
+            <x-input-error class="mt-2" :messages="$errors->get('start_date')" />
 
-                        <x-input-time for="start_time" label="{{ __('Start Time') }}" required />
-                        <x-input-error class="mt-2" :messages="$errors->get('start_time')" />
+            <x-input-time for="start_time" label="{{ __('Start Time') }}" required />
+            <x-input-error class="mt-2" :messages="$errors->get('start_time')" />
 
-                        <x-input-date name="end_date" for="end_date" label="{{ __('End Date') }}" type="date" required></x-input-date>
-                        <x-input-error class="mt-2" :messages="$errors->get('end_date')" />
+            <x-input-date name="end_date" for="end_date" label="{{ __('End Date') }}" type="date" required></x-input-date>
+            <x-input-error class="mt-2" :messages="$errors->get('end_date')" />
 
-                        <x-input-time for="end_time" label="{{ __('End Time') }}" required />
-                        <x-input-error class="mt-2" :messages="$errors->get('end_time')" />
-               
+            <x-input-time for="end_time" label="{{ __('End Time') }}" required />
+            <x-input-error class="mt-2" :messages="$errors->get('end_time')" />
 
             <x-input-label for="location" value="{{ __('Location') }}" />
-            <x-text-input placeholder="山本さくら" id="location" name="location" type="text" 
-            required autofocus autocomplete="location" />
+            <x-text-input placeholder="山本さくら" id="location" name="location" type="text" required autofocus autocomplete="location" />
             <x-input-error class="mt-2" :messages="$errors->get('location')" />
         
-        <x-primary-button>{{ __('Create Event') }}</x-primary-button>
+            <x-primary-button>{{ __('Create Event') }}</x-primary-button>
 
-    </form>
-    <div id="loading" class="loading">
-        <img src="{{ asset('logo80.png') }}" alt="Creating Event..." class="breathing-image" />
+        </form>
+        <div id="loading" class="loading">
+            <img src="{{ asset('logo80.png') }}" alt="Creating Event..." class="breathing-image" />
+        </div>
     </div>
-</div>
 
-</div>
     <style>
-/* Define your breathing animation */
-@keyframes breathe {
-    0%, 100% { transform: scale(0.4); }
-    50% { transform: scale(1); }
-}
-
-/* Apply the animation to the image */
-.breathing-image {
-    animation: breathe 1s infinite ease-in-out;
-}
-
-/* Center the spinner within the content area */
-.py-12 {
-    position: relative;
-    min-height: 100vh; /* Ensure the content area fills the viewport */
-}
-
-.loading {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none; /* Hide the spinner initially */
-}
-    </style>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById('event-form');
-    const loading = document.getElementById('loading');
-    
-    if (form) {
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            // Show loading animation
-            loading.style.display = 'block';
-
-            // Simulate form submission after a delay
-            setTimeout(function () {
-                form.submit();
-            }, 1500); // Replace with your logic or remove this timeout
-        });
+    /* Define your breathing animation */
+    @keyframes breathe {
+        0%, 100% { transform: scale(0.4); }
+        50% { transform: scale(1); }
     }
-});
-</script>
-    
+
+    /* Apply the animation to the image */
+    .breathing-image {
+        animation: breathe 1s infinite ease-in-out;
+    }
+
+    /* Center the spinner within the content area */
+    .py-12 {
+        position: relative;
+        min-height: 100vh; /* Ensure the content area fills the viewport */
+    }
+
+    .loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none; /* Hide the spinner initially */
+    }
+        </style>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById('event-form');
+        const loading = document.getElementById('loading');
+        
+        if (form) {
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                // Show loading animation
+                loading.style.display = 'block';
+
+                // Simulate form submission after a delay
+                setTimeout(function () {
+                    form.submit();
+                }, 500); // Replace with your logic or remove this timeout
+            });
+        }
+    });
+    </script>
 </x-app-layout>
