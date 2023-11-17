@@ -67,12 +67,21 @@
                 </div>            
             </div>    
             <hr />
-            <a href="https://www.marccocchio.com" target="_blank" class="btn btn-link">&copy;2023 マーク</a>
-            <br>
-            <button type="button" class="btn btn btn-link" data-bs-toggle="modal" data-bs-target="#imageModal">
-                {{ __('Donate') }}
-            </button>
-            
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="https://www.marccocchio.com" target="_blank" class="btn btn-link">&copy;2023 マーク</a>
+                        <br>
+                        <button type="button" class="btn btn btn-link" data-bs-toggle="modal" data-bs-target="#imageModal">
+                            {{ __('Donate') }}
+                        </button>
+                    </div>
+                    <div class="col-md-6 d-flex justify-content-end align-items-center">
+                        @include('partials/language_switcher')
+                    </div>
+                </div>
+            </div>
+                    
             <!-- Modal with just an image -->
             <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
