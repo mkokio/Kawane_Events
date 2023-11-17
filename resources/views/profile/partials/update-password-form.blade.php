@@ -40,7 +40,7 @@
                     x-show="show"
                     x-transition
                     x-init="setTimeout(() => show = false, 2000)"
-                    class="small text-secondary"
+                    class="small class="text-success""
                 >{{ __('Saved.') }}</p>
             @endif
         </div>

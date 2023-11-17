@@ -136,7 +136,7 @@
                             x-show="show"
                             x-transition
                             x-init="setTimeout(() => show = false, 2000)"
-                            class="text-sm0"
+                            class="small text-success""
                         >{{ __('Saved.') }}</p>
                     @endif
                 </div>
