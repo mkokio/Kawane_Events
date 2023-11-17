@@ -36,7 +36,9 @@
             <main class="col-md-6 mt-1 px-4 py-4 bg-white shadow-lg rounded mx-auto" style="max-width: 700px;">
                 {{ $slot }}
             </main>
-        </div>          
+        </div> 
+        <hr />
+         
     </body>
 <!-- Bootstrap JavaScript and Popper.js from CDN -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
