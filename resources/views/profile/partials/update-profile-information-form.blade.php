@@ -14,7 +14,7 @@
             @csrf
             @method('patch')
             
-                <h2 class>{{ __('Public Information') }}</h2>
+                <h3 class>{{ __('Profile Information') }}</h3>
         
                 <p class="lead">{{ __('All the information below will automatically be appendend to each Google Calendar Event description.') }}</p>
                 

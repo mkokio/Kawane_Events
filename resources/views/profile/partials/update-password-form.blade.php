@@ -1,8 +1,8 @@
 <section>
     <header>
-        <h2>
+        <h3>
             {{ __('Update Password') }}
-        </h2>
+        </h3>
 
         <p class="lead">
             {{ __('Ensure your account is using a long, random password to stay secure.') }}

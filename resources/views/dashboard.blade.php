@@ -12,7 +12,7 @@
                 <hr />
             </div>
 
-                <h2>{{  __('Event Details') }}</h2>
+                <h3>{{  __('Event Details') }}</h3>
                 <p>{{ __('A Google Calendar Event will be created on Kawane Event shared Calendar.') }}</p>
 
             <form id="event-form" method="post" action="{{ route('eventforms.store') }}">
@@ -76,7 +76,6 @@
     /* Center the spinner within the content area */
     .py-6 {
         position: relative;
-        min-height: 100vh; /* Ensure the content area fills the viewport */
     }
 
     .loading {
