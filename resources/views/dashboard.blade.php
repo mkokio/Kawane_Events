@@ -7,13 +7,12 @@
 
         <div class="py-6">
             <div class="text-center">
-                <!-- hyperlink 'profile' to the update profile page -->
-                {{  __('Before creating an event, make sure you have updated your ')  }} <a href='/profile' class="custom-link">{{ __('profile.') }}</a>
+                <em>{{  __('Before creating an event, make sure you have updated your ')  }} <a href='/profile' class="custom-link">{{ __('profile.') }}</a></em>
                 <hr />
             </div>
 
                 <h3>{{  __('Event Details') }}</h3>
-                <p>{{ __('A Google Calendar Event will be created on Kawane Event shared Calendar.') }}</p>
+                <p class="lead">{{ __('A Google Calendar Event will be created on Kawane Event shared Calendar.') }}</p>
 
             <form id="event-form" method="post" action="{{ route('eventforms.store') }}">
                 @csrf

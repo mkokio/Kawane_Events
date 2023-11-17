@@ -21,7 +21,9 @@
                     </form>
                 </li>
                 <li class="dropdown-divider"></li>
+                <div class="text-center">
                 @include('partials/language_switcher')
+                </div>
             </ul>
         </div>
     </div>

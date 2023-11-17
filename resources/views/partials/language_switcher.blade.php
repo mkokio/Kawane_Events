@@ -1,4 +1,4 @@
-<div class="text-center">
+<div>
     @foreach($available_locales as $locale_name => $available_locale)
         @if($available_locale === $current_locale)
             <span>{{ $locale_name }}</span>

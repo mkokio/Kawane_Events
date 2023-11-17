@@ -57,9 +57,8 @@
         
             
             <div class="w-100 col-md-6 mt-1 px-4 py-4 bg-white shadow-lg overflow-hidden rounded mx-auto" style="max-width: 700px;">
-                    <div class="text-center">
-                        <br />
-                        {{ __('Welcome to the Kawane Events Creator portal. From here, you can register, log in, and create events on the public Kawane Events Google Calendar for all to see.') }}
+                    <div class="text-center mx-5">
+                        <p class="lead">{{ __('Welcome to the Kawane Events Creator portal. From here, you can register, log in, and create events on the public Kawane Events Google Calendar for all to see.') }}</p>
                     </div>
                 <hr />
                 <div class="d-flex justify-content-center">
@@ -67,27 +66,30 @@
                 </div>            
             </div>    
             <hr />
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-6">
-                        <a href="https://www.marccocchio.com" target="_blank" class="btn btn-link">&copy;2023 マーク</a>
-                        <br>
-                        <button type="button" class="btn btn btn-link" data-bs-toggle="modal" data-bs-target="#imageModal">
-                            {{ __('Donate') }}
-                        </button>
+            <nav class="navbar">
+                <div class="container-fluid">
+                    <div class="float-left">
+                        <div>
+                            <a href="https://www.marccocchio.com" target="_blank" class="btn link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">&copy;2023 マーク</a>
+                        </div>
+                        <div>
+                            <button type="button" class="btn link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" data-bs-toggle="modal" data-bs-target="#imageModal">
+                                {{ __('Donate') }}
+                            </button>
+                        </div>
                     </div>
-                    <div class="col-md-6 d-flex justify-content-end align-items-center">
+                    <div class="float-right">
                         @include('partials/language_switcher')
                     </div>
                 </div>
-            </div>
+            </nav>
                     
             <!-- Modal with just an image -->
             <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-body text-center">
-                            <img src="{{ asset('kawaneeventsbitcoinqr.jpg') }}" alt="Bitcoin QR Code" style="width: 80%;">
+                            <img src="{{ asset('kawaneeventsbitcoinqr.jpg') }}" alt="Bitcoin QR Code" style="width: 60%;">
                         </div>
                     </div>
                 </div>

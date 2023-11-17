@@ -1,7 +1,6 @@
 <section class="relative">
     <div class="text-center">
-        <!-- hyperlink 'profile' to the update profile page -->
-        {{  __('Would you like to make an ')  }} <a href='/dashboard' class="custom-link">{{ __('event?') }}</a>
+        <em>{{  __('Would you like to make an ')  }} <a href='/dashboard' class="custom-link">{{ __('event?') }}</a></em>
         <hr />
     </div>
 
@@ -58,14 +57,14 @@
                 :value="old('homepage', $user->homepage)" nullable autofocus autocomplete="homepage" />
                 <x-input-error class="mt-2" :messages="$errors->get('homepage')" />
 
-                <!--A list of the calendar event colors to iterate through -->
+                <!--A pretty cool list of the calendar event colors to iterate through -->
                 @php
                 $colors = ['#a4bdfc', '#7ae7bf', '#dbadff', '#ff887c', '#fbd75b', '#ffb878', '#46d6db', '#e1e1e1', '#5484ed', '#51b749'];
                 @endphp
 
                 <div>
-                    <x-input-label for="color" :value="__('Color Selector')" /><br />
-                    <div class="btn-group btn-group-lg" role="group" aria-label="Basic mixed styles example">
+                    <x-input-label for="color" :value="__('Color Selector for you Events')" /><br />
+                    <div class="btn-group btn-group-lg" role="group" aria-label="Basic mixed styles example" style="height: 35px;">
                         @for ($i = 1; $i <= 10; $i++)
                         <input type="radio"
                             class="btn-check visually-hidden"
@@ -76,7 +75,8 @@
                             style="display: none;"
                             @if (old('colors', $user->colors) == $i || ($i === 1 && $user->colors === null)) checked @endif
                         />
-                        <label class="btn" style="background-color: {{ $colors[$i-1] }};" for="color_{{ $i }}"></label>
+                        <label class="btn" style="background-color: {{ $colors[$i-1] }}; height: 100%;" for="color_{{ $i }}"></label>
+                        <!--<label class="btn" style="border-color: {{ $colors[$i-1] }};" for="color_{{ $i }}"></label> -->
                         @endfor
                     </div>
                 </div>          
@@ -122,11 +122,6 @@
                     </div>
                 @endif
                 
-        
-        
-
-
-                <!-- Additional (optional) profile information to be auto-appended to event description -->
                 <div class="flex items-center gap-4">
                     <x-primary-button>{{ __('Save') }}</x-primary-button>
 
@@ -145,8 +140,9 @@
                 <img src="{{ asset('logo80.png') }}" alt="Editing Profile..." class="spin-image" />
             </div>
 </section>
+
 <style>
-    /* Define your spinner animation */
+    /* Spinner animation */
     @keyframes spin {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
@@ -168,7 +164,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        display: none; /* Hide the spinner initially */
+        display: none; /* Hide initially */
     }
 </style>
 
@@ -184,13 +180,13 @@
                 // Show loading animation
                 loading.style.display = 'block';
 
-                // Calculate the exact center of the viewport
+                // Calculate the center of the viewport
                 const clientHeight = document.documentElement.clientHeight;
                 const spinnerHeight = loading.offsetHeight;
                 const spinnerTop = (clientHeight - spinnerHeight) / 2 + window.scrollY;
                 loading.style.top = spinnerTop + 'px';
 
-                // Simulate form submission (this is where you might perform the actual form submission using AJAX, etc.)
+                // Simulate form submission
                 setTimeout(() => {
                     form.submit(); // Simulated form submission
                 }, 2000); // Adjust this timeout according to your needs
