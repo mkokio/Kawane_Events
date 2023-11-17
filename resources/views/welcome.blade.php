@@ -57,7 +57,7 @@
         
             
             <div class="w-100 col-md-6 mt-1 px-4 py-4 bg-white shadow-lg overflow-hidden rounded mx-auto" style="max-width: 700px;">
-                    <div class="text-center mx-5">
+                    <div class="text-center mx-3">
                         <p class="lead">{{ __('Welcome to the Kawane Events Creator portal. From here, you can register, log in, and create events on the public Kawane Events Google Calendar for all to see.') }}</p>
                     </div>
                 <hr />

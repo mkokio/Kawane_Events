@@ -43,10 +43,11 @@
             <a href="{{ route('login') }}">
                 {{ __('Already registered?') }}
             </a>
-
-            <x-primary-button>
-                {{ __('Register') }}
-            </x-primary-button>
+            <span style="margin-left: 10px;">
+                <x-primary-button>
+                    {{ __('Register') }}
+                </x-primary-button>
+            </span>
         </div>
     </form>
 </x-guest-layout>
