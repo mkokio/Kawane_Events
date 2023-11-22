@@ -55,12 +55,42 @@
                 <x-primary-button>{{ __('Create Event') }}</x-primary-button>
 
             </form>
+
+            <div id="confirmationModal" class="modal" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">{{ __('Create Event with these Details?') }}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <strong>{{ __('Event Title') }}:</strong> <span id="event_title_placeholder"></span><br>
+                            <strong>{{ __('Description') }}:</strong> <span id="description_placeholder"></span><br>
+                            <strong>{{ __('Location') }}:</strong> <span id="location_placeholder"></span><br>
+                            <strong>{{  __('Start') }}:</strong> <span id="start_date_placeholder"></span> ・ <span id="start_time_placeholder"></span><br>
+                            <strong>{{  __('End') }}:</strong> <span id="end_date_placeholder"></span> ・ <span id="end_time_placeholder"></span>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="confirmSubmit" class="btn btn-primary">{{ __('Submit') }}</button>
+                            <button id="cancelSubmit" class="btn btn-secondary">{{ __('Cancel') }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div id="loading" class="loading">
                 <img src="{{ asset('logo80.png') }}" alt="Creating Event..." class="breathing-image" />
             </div>
+
         </div>
     </section>
+    
     <style>
+    .confirmationModal {
+    display: none;
+    /* Add other necessary styling for the modal */
+}
+
     /* Define your breathing animation */
     @keyframes breathe {
         0%, 100% { transform: scale(0.4); }
@@ -96,20 +126,46 @@
     document.addEventListener("DOMContentLoaded", function () {
         const form = document.getElementById('event-form');
         const loading = document.getElementById('loading');
+        const confirmationModal = document.getElementById('confirmationModal');
+        const confirmSubmit = document.getElementById('confirmSubmit');
+        const cancelSubmit = document.getElementById('cancelSubmit');
+        const eventTitlePlaceholder = document.getElementById('event_title_placeholder');
+        const eventDescriptionPlaceholder = document.getElementById('description_placeholder');
+        const eventLocationPlaceholder = document.getElementById('location_placeholder');
+        const eventStartDatePlaceholder = document.getElementById('start_date_placeholder');
+        const eventStartTimePlaceholder = document.getElementById('start_time_placeholder');
+        const eventEndDatePlaceholder = document.getElementById('end_date_placeholder');
+        const eventEndTimePlaceholder = document.getElementById('end_time_placeholder');
         
-        if (form) {
+        if (form && confirmationModal && confirmSubmit && cancelSubmit && eventTitlePlaceholder && eventDescriptionPlaceholder && eventLocationPlaceholder) {
             form.addEventListener('submit', function (event) {
                 event.preventDefault();
+                eventTitlePlaceholder.textContent = document.getElementById('event_title').value;
+                eventDescriptionPlaceholder.textContent = document.getElementById('description').value;
+                eventLocationPlaceholder.textContent = document.getElementById('location').value;
+                eventStartDatePlaceholder.textContent = document.getElementById('start_date').value;
+                eventStartTimePlaceholder.textContent = document.getElementById('start_time').value;
+                eventEndDatePlaceholder.textContent = document.getElementById('end_date').value;
+                eventEndTimePlaceholder.textContent = document.getElementById('end_time').value;
+                confirmationModal.style.display = 'block';
+            });
 
-                // Show loading animation
+            confirmSubmit.addEventListener('click', function() {
                 loading.style.display = 'block';
-
-                // Simulate form submission after a delay
+                confirmationModal.style.display = 'none';
                 setTimeout(function () {
                     form.submit();
-                }, 500); // Replace with your logic or remove this timeout
+                }, 500);
             });
+
+            cancelSubmit.addEventListener('click', function() {
+                confirmationModal.style.display = 'none';
+            });
+        } else {
+            console.error('Some elements are missing.');
         }
     });
+
+
     </script>
 </x-app-layout>
