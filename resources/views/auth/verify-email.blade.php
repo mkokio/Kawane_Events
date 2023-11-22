@@ -14,19 +14,18 @@
         <form method="POST" action="{{ route('verification.send') }}" class="d-inline-block">
             @csrf
 
-            
-                <x-primary-button>
+                <button type="submit" class="btn btn-outline-primary" class="d-inline-block">
                     {{ __('Resend Verification Email') }}
-                </x-primary-button>
+                </button>
             
         </form>
 
-            <form method="POST" action="{{ route('logout') }}">
+        <form method="POST" action="{{ route('logout') }}">
                 @csrf
 
                 <button type="submit" class="btn btn-outline-secondary" class="d-inline-block">
                     {{ __('Log Out') }}
                 </button>
-            </form>
-        </div>
+        </form>
+    </div>
 </x-guest-layout>
