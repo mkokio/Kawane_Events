@@ -36,20 +36,20 @@
                 ></textarea>
                 <x-input-error class="mt-2" :messages="$errors->get('description')" />          
                     
-                <x-input-date name="start_date" for="start_date" label="{{ __('Start Date') }}" type="date" required></x-input-date>
+                <x-input-date name="start_date" for="start_date" label="{{ __('Start Date') }}" required></x-input-date>
                 <x-input-error class="mt-2" :messages="$errors->get('start_date')" />
 
                 <x-input-time for="start_time" label="{{ __('Start Time') }}" required />
                 <x-input-error class="mt-2" :messages="$errors->get('start_time')" />
 
-                <x-input-date name="end_date" for="end_date" label="{{ __('End Date') }}" type="date" required></x-input-date>
+                <x-input-date name="end_date" for="end_date" label="{{ __('End Date') }}" required></x-input-date>
                 <x-input-error class="mt-2" :messages="$errors->get('end_date')" />
 
                 <x-input-time for="end_time" label="{{ __('End Time') }}" required />
                 <x-input-error class="mt-2" :messages="$errors->get('end_time')" />
 
                 <x-input-label for="location" value="{{ __('Location') }}" />
-                <x-text-input placeholder="山本さくら" id="location" name="location" type="text" required autofocus autocomplete="location" />
+                <x-text-input placeholder="小川公園" id="location" name="location" type="text" required autofocus autocomplete="location" />
                 <x-input-error class="mt-2" :messages="$errors->get('location')" />
             
                 <x-primary-button>{{ __('Submit') }}</x-primary-button>

@@ -18,7 +18,7 @@
                 <p class="lead">{{ __('All the information below will automatically be appendend to each Google Calendar Event description.') }}</p>
                 
                 <x-input-label for="public_name" :value="__('Event Creator\'s Name (Required)')" />
-                <x-text-input placeholder="山本さくら" id="public_name" name="public_name" type="text" class="mt-1 block w-full" 
+                <x-text-input placeholder="山田さくら" id="public_name" name="public_name" type="text" class="mt-1 block w-full" 
                     :value="old('public_name', $user->public_name ?? $user->name)" required autofocus autocomplete="{{ $user->public_name ? 'off' : $user->name }}" />
                 <x-input-error class="mt-2" :messages="$errors->get('public_name')" />
             
