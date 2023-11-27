@@ -52,7 +52,7 @@
                 <x-text-input placeholder="山本さくら" id="location" name="location" type="text" required autofocus autocomplete="location" />
                 <x-input-error class="mt-2" :messages="$errors->get('location')" />
             
-                <x-primary-button>{{ __('Create Event') }}</x-primary-button>
+                <x-primary-button>{{ __('Submit') }}</x-primary-button>
 
             </form>
 
@@ -71,7 +71,7 @@
                             <strong>{{  __('End') }}:</strong> <span id="end_date_placeholder"></span> ・ <span id="end_time_placeholder"></span>
                         </div>
                         <div class="modal-footer">
-                            <button id="confirmSubmit" class="btn btn-primary">{{ __('Submit') }}</button>
+                            <button id="confirmSubmit" class="btn btn-primary">{{ __('Create Event') }}</button>
                             <button id="cancelSubmit" class="btn btn-secondary">{{ __('Cancel') }}</button>
                         </div>
                     </div>
