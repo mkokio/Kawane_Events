@@ -10,6 +10,7 @@
 .env.dev
 .env.backup
 .env.production
+/laradock
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
