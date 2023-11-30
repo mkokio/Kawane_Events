@@ -38,7 +38,7 @@
                     {{ __('Forgot your password?') }}
                 </a>
             @endif
-            <span style="margin-left: 10px;">
+            <span style="margin-left: 40px;">
                 <x-primary-button>
                     {{ __('Log in') }}
                 </x-primary-button>

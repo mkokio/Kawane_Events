@@ -43,7 +43,7 @@
             <a href="{{ route('login') }}">
                 {{ __('Already registered?') }}
             </a>
-            <span style="margin-left: 10px;">
+            <span style="margin-left: 40px;">
                 <x-primary-button>
                     {{ __('Register') }}
                 </x-primary-button>
