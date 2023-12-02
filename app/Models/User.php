@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -10,7 +9,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use App\Notifications\ResetPassword;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -30,7 +29,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'instagram',
         'twitter',
         'homepage',
-        'colors',        
+        'colors',
     ];
 
     /**
@@ -58,7 +57,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function eventforms(): HasMany
     {
-        return $this -> hasMany(EventForm::class);
+        return $this->hasMany(EventForm::class);
     }
 
     public function sendPasswordResetNotification($token)
