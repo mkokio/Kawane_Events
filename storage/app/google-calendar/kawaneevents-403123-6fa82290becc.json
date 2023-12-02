@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "kawaneevents-403123",
+  "private_key_id": "6fa82290becc4dbb8543e992703d42552ade94f6",
+  "client_email": "kawaneevents@kawaneevents-403123.iam.gserviceaccount.com",
+  "client_id": "117137605925212298690",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/kawaneevents%40kawaneevents-403123.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
