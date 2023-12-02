@@ -15,17 +15,16 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            
+
             // Additional info (all optional)
             $table->string('business_name', 100)->nullable();
-            $table->string('public_name', 70)->nullable(); 
+            $table->string('public_name', 70)->nullable();
             $table->string('phone', 30)->nullable();
             $table->string('contact_email', 50)->nullable();
-            $table->string('instagram', 50)->nullable(); 
+            $table->string('instagram', 50)->nullable();
             $table->string('twitter', 50)->nullable();
             $table->string('homepage', 100)->nullable();
             // event color choice (dropdown list)
