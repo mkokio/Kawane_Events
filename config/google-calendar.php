@@ -10,10 +10,21 @@ return [
          * Authenticate using a service account.
          */
         'service_account' => [
-            /*
-             * Path to the json file containing the credentials.
-             */
-            'credentials_json' => storage_path('app/google-calendar/kawaneevents-403123-6fa82290becc.json'),
+            'service_account' => [
+                'credentials_json' => [
+                    'type' => env('GOOGLE_SERVICE_ACCOUNT_TYPE'),
+                    'project_id' => env('GOOGLE_SERVICE_ACCOUNT_PROJECT_ID'),
+                    'private_key_id' => env('GOOGLE_PRIVATE_KEY_ID'),
+                    'private_key' => str_replace("\\n", "\n", env('GOOGLE_PRIVATE_KEY')),
+                    'client_email' => env('GOOGLE_SERVICE_ACCOUNT_CLIENT_EMAIL'),
+                    'client_id' => env('GOOGLE_SERVICE_ACCOUNT_CLIENT_ID'),
+                    'auth_uri' => env('GOOGLE_AUTH_URI'),
+                    'token_uri' => env('GOOGLE_TOKEN_URI'),
+                    'auth_provider_x509_cert_url' => env('GOOGLE_AUTH_PROVIDER_CERT_URL'),
+                    'client_x509_cert_url' => env('GOOGLE_CLIENT_CERT_URL'),
+                    'universe_domain' => env('GOOGLE_UNIVERSE_DOMAIN'),
+                ],
+            ],
         ],
 
         /*
