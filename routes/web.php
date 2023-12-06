@@ -64,4 +64,18 @@ Route::middleware('auth')->group(function () {
 
     });
 
+Route::get('/test-db-connection', function () {
+    try {
+        DB::connection()->getPdo();
+        return 'Database connection is successful! Yay.';
+    } catch (\Exception $e) {
+        return 'Database connection failed: ' . $e->getMessage();
+    }
+});
+
+Route::get('/env-check', function () {
+    dd(env('APP_ENV'));
+});
+    
+
 require __DIR__.'/auth.php';
