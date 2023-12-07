@@ -78,9 +78,11 @@
                             </button>
                         </div>
                     </div>
+                    <!--
                     <div class="float-right">
                         @include('partials/language_switcher')
                     </div>
+                    -->
                 </div>
             </nav>
                     
