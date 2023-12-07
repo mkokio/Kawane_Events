@@ -64,6 +64,7 @@ Route::middleware('auth')->group(function () {
 
     });
 
+/* Test routes
 Route::get('/test-db-connection', function () {
     try {
         DB::connection()->getPdo();
@@ -76,6 +77,7 @@ Route::get('/test-db-connection', function () {
 Route::get('/env-check', function () {
     dd(env('APP_ENV'));
 });
+*/
     
 
 require __DIR__.'/auth.php';
