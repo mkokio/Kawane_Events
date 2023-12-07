@@ -91,7 +91,11 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-body text-center">
-                            <img src="{{ asset('kawaneeventsbitcoinqr.jpg') }}" alt="Bitcoin QR Code" style="width: 60%;">
+                            <img src="https://image.paypay.ne.jp/page/common/images/img_logo.png" alt="PayPay Logo">
+                            <br>
+                            <img src="{{ asset('paypayQR.png') }}" alt="Paypay QR Code" style="width: 50%;">
+                            <br>
+                            {{ __('Thank you very much!') }}
                         </div>
                     </div>
                 </div>
