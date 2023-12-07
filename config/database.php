@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'sqlite'), //changed sqlite from mySQL Nov. 7
+    'default' => env('DB_CONNECTION', 'mysql'), //changed sqlite from mySQL Nov. 7 (changed back Dec 7)
 
     /*
     |--------------------------------------------------------------------------
