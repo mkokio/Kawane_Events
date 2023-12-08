@@ -12,7 +12,9 @@ class TrustProxies extends Middleware
      *
      * @var array<int, string>|string|null
      */
-    protected $proxies;
+    protected $proxies = '*';
+// from https://stackoverflow.com/questions/74092918/vite-production-error-mixed-content-the-page-at-https-example-herokuapp-com
+
 
     /**
      * The headers that should be used to detect proxies.
