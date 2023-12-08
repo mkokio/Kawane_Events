@@ -137,7 +137,7 @@
                 </div>
             </form>
             <div id="loading" class="loading">
-                <img src="{{ asset('logo80.png') }}" alt="Editing Profile..." class="spin-image" />
+                <img src="{{ secure_asset('logo80.png') }}" alt="Editing Profile..." class="spin-image" />
             </div>
 </section>
 

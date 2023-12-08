@@ -18,11 +18,11 @@
         <br />
         <div class="d-flex justify-content-center">
             <a href="{{ env('GOOGLE_CALENDAR_PUBLIC_URL') }}" target="_blank">
-                <img class="border rounded mx-auto w-32" src="{{ asset('KWElogoSmall.png') }}" alt="Kawane Events Calendar QR Code">
+                <img class="border rounded mx-auto w-32" src="{{ secure_asset('KWElogoSmall.png') }}" alt="Kawane Events Calendar QR Code">
             </a>
         </div>
         <div class="d-flex justify-content-center">
-            <img class="border rounded mx-auto" src="{{ asset('KawaneEventsCalendarQR.png') }}" alt="Kawane Events Calendar QR Code">
+            <img class="border rounded mx-auto" src="{{ secure_asset('KawaneEventsCalendarQR.png') }}" alt="Kawane Events Calendar QR Code">
         </div>
 
         <br />
@@ -51,7 +51,7 @@
 </div>
 <!-- Success message and loading animation initially hidden -->
 <div class="loading" style="display: none;">
-    <img src="{{ asset('logo80.png') }}" alt="Loading..." class="spin-image" />
+    <img src="{{ secure_asset('logo80.png') }}" alt="Loading..." class="spin-image" />
 </div>
 
 <div class="loaded content" style="display: none;">

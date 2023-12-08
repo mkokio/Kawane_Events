@@ -79,7 +79,7 @@
             </div>
 
             <div id="loading" class="loading">
-                <img src="{{ asset('logo80.png') }}" alt="Creating Event..." class="breathing-image" />
+                <img src="{{ secure_asset('logo80.png') }}" alt="Creating Event..." class="breathing-image" />
             </div>
 
         </div>
