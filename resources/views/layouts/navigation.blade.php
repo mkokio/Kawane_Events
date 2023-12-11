@@ -3,7 +3,9 @@
         <div style="transform: scale(0.6);">
             <x-application-logo />
         </div>
-
+        <div class="float-center">
+            <x-application-title />
+        </div>
         <div class="dropdown">
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                 {{ Auth::user()->name }}

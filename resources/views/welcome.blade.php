@@ -29,7 +29,11 @@
                         <x-application-logo />
                     </div>
                 </div>
-            
+                
+                <div class="float-center">
+                    <x-application-title />
+                </div>
+
                 <div class="float-right">
                     @if (Route::has('login'))
                         @auth
