@@ -34,10 +34,7 @@
         <br />
         <hr />
         <br />
-        <div class="d-flex justify-content-center">
-        <iframe src="{{ env('GOOGLE_CALENDAR_PUBLIC_URL') }}" style="border-width:0" width="600" height="600" frameborder="0" scrolling="no"></iframe>
-        </div> 
-
+        <x-embed-calendar />
         <hr />
         <br />
         <p>

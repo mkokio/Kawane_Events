@@ -65,9 +65,8 @@
                         <p class="lead">{{ __('Welcome to the Kawane Events Creator portal. From here, you can register, log in, and create events on the public Kawane Events Google Calendar for all to see.') }}</p>
                     </div>
                 <hr />
-                <div class="d-flex justify-content-center">
-                    <iframe src="{{ env('GOOGLE_CALENDAR_PUBLIC_URL') }}" style="border-width:0" width="600" height="600" frameborder="0" scrolling="no"></iframe>
-                </div>            
+                <x-embed-calendar />
+           
             </div>    
             <hr />
             <nav class="navbar">
