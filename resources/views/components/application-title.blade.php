@@ -1,9 +1,9 @@
 <div class="container">
-    <a href="/" class="custom-link">{{ __('Kawane Events') }}</a>
+    <a href="/" class="custom-link-title">{{ __('Kawane Events') }}</a>
 </div>
 
 <style>
-    .custom-link {
+    .custom-link-title {
         color: #6c757d; 
         text-decoration: none; 
         font-size: 2rem; /* Default font size */
@@ -14,7 +14,7 @@
         }
     }
 
-    .custom-link:hover {
+    .custom-link-title:hover {
         color: #006400; 
         text-decoration: none; /* Remove underline on hover */
     }
