@@ -1,4 +1,5 @@
 <x-guest-layout>
+    <p class="lead">{{ __('Before creating an event, please Log In or Register.') }}</p>
     <!-- Session Status -->
     <x-auth-session-status :status="session('status')" />
 
@@ -28,21 +29,20 @@
         <div>
             <label for="remember_me" >
                 <input id="remember_me" type="checkbox"  name="remember">
-                <span >{{ __('Remember me') }}</span>
+                <span>{{ __('Remember me') }}</span>
             </label>
         </div>
 
-        <div class="flex items-center justify-end mt-4">
             @if (Route::has('password.request'))
                 <a href="{{ route('password.request') }}">
                     {{ __('Forgot your password?') }}
                 </a>
             @endif
-            <span style="margin-left: 40px;">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a href="{{ route('register') }}" class="btn btn-primary p-1 mt-4">{{ __('Register') }}</a>
                 <x-primary-button>
                     {{ __('Log in') }}
                 </x-primary-button>
-            </span>
-        </div>
+            </div>
     </form>
 </x-guest-layout>

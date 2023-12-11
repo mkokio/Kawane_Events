@@ -22,3 +22,4 @@ yarn-error.log
 /.vscode
 set_h*
 Dockerfile
+/database/database.sqlite
