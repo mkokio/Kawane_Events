@@ -33,6 +33,9 @@ Route::middleware('guest')->group(function () {
 
     Route::post('reset-password', [NewPasswordController::class, 'store'])
                 ->name('password.store');
+                
+    Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])
+                ->name('password.reset');
 });
 
 Route::middleware('auth')->group(function () {

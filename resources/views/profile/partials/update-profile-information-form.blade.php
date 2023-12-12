@@ -136,12 +136,36 @@
                     @endif
                 </div>
             </form>
+
+            <div id="confirmationModal" class="modal" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">{{ __('Update profile information? This information will be publicly available on any future events that you create.') }}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        
+                        </div>
+                        <div class="modal-footer">
+                            <button id="confirmSubmit" class="btn btn-primary">{{ __('Save') }}</button>
+                            <button id="cancelSubmit" class="btn btn-secondary">{{ __('Cancel') }}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div id="loading" class="loading">
-                <img src="{{ secure_asset('logo80.png') }}" alt="Editing Profile..." class="spin-image" />
+                <img src="{{ asset('logo80.png') }}" alt="Editing Profile..." class="spin-image" />
             </div>
 </section>
 
 <style>
+    .confirmationModal {
+        display: none;
+        /* Add other styling for the modal */
+    }
+
     /* Spinner animation */
     @keyframes spin {
         0% { transform: rotate(0deg); }
@@ -172,6 +196,8 @@
     document.addEventListener("DOMContentLoaded", function () {
         const form = document.getElementById('profile-form'); // Update the form ID
         const loading = document.getElementById('loading');
+        const confirmSubmit = document.getElementById('confirmSubmit');
+        const cancelSubmit = document.getElementById('cancelSubmit');
 
         if (form) {
             form.addEventListener('submit', function (event) {

@@ -99,7 +99,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'info@kawane.events'), //default was hello@example.com
         'name' => env('MAIL_FROM_NAME', 'Kawane Events Calendar'),
     ],
 

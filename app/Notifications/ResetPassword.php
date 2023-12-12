@@ -12,15 +12,11 @@ class ResetPassword extends ResetPasswordNotification
 {
     use Queueable;
 
-    public function __construct()
-    {
-        //
-    }
+    public $token;
 
-    // Override the via method with the correct method signature
-    public function via($notifiable)
+    public function __construct($token)
     {
-        return ['mail'];
+        $this->token = $token;
     }
 
     public function toMail($notifiable)
@@ -29,15 +25,8 @@ class ResetPassword extends ResetPasswordNotification
             ->greeting(__('Hello!'))
             ->subject(__('Reset Password'))
             ->line(__('You are receiving this email because we received a password reset request for your account.'))
-            ->action(__('Reset Password'), url('password/reset', $this->token))
+            ->action(__('Reset Password'), route('password.reset', ['token' => $this->token]))
             ->line(__('If you did not request a password reset, no further action is required.'))
             ->salutation(__('Thank you from Kawane Events.'));
-    }
-
-    public function toArray($notifiable)
-    {
-        return [
-            //
-        ];
     }
 }
