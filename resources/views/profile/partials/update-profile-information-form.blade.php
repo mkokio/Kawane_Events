@@ -123,7 +123,7 @@
                 @endif
                 
                 <div class="flex items-center gap-4">
-                    <x-primary-button>{{ __('Save') }}</x-primary-button>
+                    <x-primary-button id="saveButton">{{ __('Save') }}</x-primary-button>
 
                     @if (session('status') === 'profile-updated')
                         <p
@@ -131,7 +131,7 @@
                             x-show="show"
                             x-transition
                             x-init="setTimeout(() => show = false, 2000)"
-                            class="small text-success""
+                            class="small text-success"
                         >{{ __('Saved.') }}</p>
                     @endif
                 </div>
@@ -141,11 +141,11 @@
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title">{{ __('Update profile information? This information will be publicly available on any future events that you create.') }}</h5>
+                            <h5 class="modal-title">{{ __('Update profile information?') }}</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                        
+                        {{ __('This information will be publicly available on any future events that you create.') }}
                         </div>
                         <div class="modal-footer">
                             <button id="confirmSubmit" class="btn btn-primary">{{ __('Save') }}</button>
@@ -156,7 +156,9 @@
             </div>
 
             <div id="loading" class="loading">
-                <img src="{{ asset('logo80.png') }}" alt="Editing Profile..." class="spin-image" />
+                <div class="spinner">
+                    <img src="{{ asset('logo80.png') }}" alt="Saving Profile..." class="spin-image" />
+                </div>
             </div>
 </section>
 
@@ -184,39 +186,44 @@
     }
 
     .loading {
-        position: absolute;
+        position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         display: none; /* Hide initially */
     }
+    
 </style>
-
+<!-- FIX BELOW FOR MODAL TO WORK PROPERLY -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const form = document.getElementById('profile-form'); // Update the form ID
+        const form = document.getElementById('profile-form');
         const loading = document.getElementById('loading');
+        const confirmationModal = document.getElementById('confirmationModal');
         const confirmSubmit = document.getElementById('confirmSubmit');
         const cancelSubmit = document.getElementById('cancelSubmit');
+        const saveButton = document.getElementById('saveButton');
 
-        if (form) {
-            form.addEventListener('submit', function (event) {
+        if (saveButton && confirmationModal && confirmSubmit && cancelSubmit && loading) {
+            saveButton.addEventListener('click', function (event) {
                 event.preventDefault();
+                confirmationModal.style.display = 'block';
+            });
 
-                // Show loading animation
+            confirmSubmit.addEventListener('click', function () {
                 loading.style.display = 'block';
+                confirmationModal.style.display = 'none';
+                //loading.classList.add('spin-image');
 
-                // Calculate the center of the viewport
-                const clientHeight = document.documentElement.clientHeight;
-                const spinnerHeight = loading.offsetHeight;
-                const spinnerTop = (clientHeight - spinnerHeight) / 2 + window.scrollY;
-                loading.style.top = spinnerTop + 'px';
-
-                // Simulate form submission
                 setTimeout(() => {
-                    form.submit(); // Simulated form submission
-                }, 2000); // Adjust this timeout according to your needs
+                    form.submit();
+                }, 2000);
+            });
+
+            cancelSubmit.addEventListener('click', function () {
+                confirmationModal.style.display = 'none';
             });
         }
     });
 </script>
+
