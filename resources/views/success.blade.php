@@ -39,7 +39,7 @@
         <br />
         <p>
         {{ __('Assistance: ') }}
-        <a href="mailto:{{ env('MAIL_USERNAME') }}?subject=Kawane%20Event%20Help">
+        <a href="mailto:{{ env('MAIL_USERNAME') }}?subject=Kawane%20Event%20Help" class="custom-link">
         {{ env('MAIL_USERNAME') }}
         </a>
         </p>

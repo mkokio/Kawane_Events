@@ -46,11 +46,23 @@
         </div> 
         <hr />
         {{ __('Assistance: ') }}
-        <a href="mailto:{{ env('MAIL_USERNAME') }}?subject=Kawane%20Event%20Help">
+        <a href="mailto:{{ env('MAIL_USERNAME') }}?subject=Kawane%20Event%20Help" class="custom-link">
         {{ env('MAIL_USERNAME') }}
         </a>
     </body>
 <!-- Bootstrap JavaScript and Popper.js from CDN -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+z6W5/KZlU2u8z2n2pHf2b5N4A4PjB4fl6S6v5wM" crossorigin="anonymous"></script>
+
+<style>
+    .custom-link {
+        color: #04a321; 
+        text-decoration: none; 
+    }
+
+    .custom-link:hover {
+        color: #006400; 
+        text-decoration: none; /* Remove underline on hover */
+    }
+</style>
 </html>

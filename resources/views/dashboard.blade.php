@@ -52,6 +52,16 @@
                 <x-text-input placeholder="小川公園" id="location" name="location" type="text" required autofocus autocomplete="location" />
                 <x-input-error class="mt-2" :messages="$errors->get('location')" />
             
+                <!-- NEEDS LOGIC, BACKEND, AND PERHAPS DATABASE -->
+                <x-input-label for="event_url" value="{{ __('URL for Event (Optional)') }}" />
+                <div class="input-group">
+                    <x-text-input placeholder="http://www.myevent.jp/poster.jpg" id="url" name="url" type="text"/>
+                    <x-text-input placeholder="イベントポスター" id="url_text" name="url_text" type="text"/>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button">{{ __('Preview') }}</button>
+                    </div>
+                </div>
+
                 <x-primary-button>{{ __('Submit') }}</x-primary-button>
 
             </form>
