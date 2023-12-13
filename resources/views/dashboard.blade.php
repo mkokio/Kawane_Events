@@ -55,11 +55,13 @@
                 <!-- NEEDS LOGIC, BACKEND, AND PERHAPS DATABASE -->
                 <x-input-label for="event_url" value="{{ __('URL for Event (Optional)') }}" />
                 <div class="input-group">
-                    <x-text-input placeholder="http://www.myevent.jp/poster.jpg" id="url" name="url" type="text"/>
-                    <x-text-input placeholder="イベントポスター" id="url_text" name="url_text" type="text"/>
+                    <x-text-input class="col-sm-4" placeholder="リンクテキスト" id="link-text" name="link-text" type="text"/>
+                    <x-text-input class="col-sm-8" placeholder="https://www.myevent.jp/poster.jpg (URL)" id="link-url" name="link-url" type="text"/>
+                    <!-- Paste Function not working, yet!
                     <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" type="button">{{ __('Preview') }}</button>
+                        <button type="button" id="pasteButton" class="btn btn-outline-secondary">{{ __('Paste') }}</button>
                     </div>
+                    -->
                 </div>
 
                 <x-primary-button>{{ __('Submit') }}</x-primary-button>
@@ -78,7 +80,8 @@
                             <strong>{{ __('Description') }}:</strong> <span id="description_placeholder"></span><br>
                             <strong>{{ __('Location') }}:</strong> <span id="location_placeholder"></span><br>
                             <strong>{{  __('Start') }}:</strong> <span id="start_date_placeholder"></span> ・ <span id="start_time_placeholder"></span><br>
-                            <strong>{{  __('End') }}:</strong> <span id="end_date_placeholder"></span> ・ <span id="end_time_placeholder"></span>
+                            <strong>{{  __('End') }}:</strong> <span id="end_date_placeholder"></span> ・ <span id="end_time_placeholder"></span><br>
+                            <strong>{{ __('Link') }}:</strong> <a id="link_placeholder" href="#" target="_blank"></a>
                         </div>
                         <div class="modal-footer">
                             <button id="confirmSubmit" class="btn btn-primary">{{ __('Create Event') }}</button>
@@ -133,6 +136,16 @@
     </style>
 
     <script>
+    /* Paste function for URL not working, yet   
+    document.getElementById('pasteButton').addEventListener('click', function() {
+        navigator.clipboard.readText().then(clipText => {
+            document.getElementById('link-url').value = clipText;
+        }).catch(err => {
+            console.error('Failed to read clipboard contents: ', err);
+        });
+    });
+    */
+
     document.addEventListener("DOMContentLoaded", function () {
         const form = document.getElementById('event-form');
         const loading = document.getElementById('loading');
@@ -146,7 +159,10 @@
         const eventStartTimePlaceholder = document.getElementById('start_time_placeholder');
         const eventEndDatePlaceholder = document.getElementById('end_date_placeholder');
         const eventEndTimePlaceholder = document.getElementById('end_time_placeholder');
-        
+        const linkText = document.getElementById('link-text').value;
+        const linkUrl = document.getElementById('link-url').value;
+        const linkPlaceholder = document.getElementById('link_placeholder');
+
         if (form && confirmationModal && confirmSubmit && cancelSubmit && eventTitlePlaceholder && eventDescriptionPlaceholder && eventLocationPlaceholder) {
             form.addEventListener('submit', function (event) {
                 event.preventDefault();
@@ -158,11 +174,15 @@
                 eventEndDatePlaceholder.textContent = document.getElementById('end_date').value;
                 eventEndTimePlaceholder.textContent = document.getElementById('end_time').value;
                 confirmationModal.style.display = 'block';
+                linkPlaceholder.textContent = linkText;
+                linkPlaceholder.href = linkUrl;
             });
 
             confirmSubmit.addEventListener('click', function() {
                 loading.style.display = 'block';
                 confirmationModal.style.display = 'none';
+
+
                 setTimeout(function () {
                     form.submit();
                 }, 500);

@@ -77,6 +77,10 @@ class EventFormController extends Controller
         $homePage = $user->homepage;
         $selectedcolor = $user->colors;
 
+        // Retrieve the values of link-text and link-url from the request
+        $linkText = $request->input('link-text');
+        $linkUrl = $request->input('link-url');
+
         // Add user's info to this list if it exists
         $additionalDescriptionItems = [];
             if ($request->input('location')) {
@@ -100,6 +104,10 @@ class EventFormController extends Controller
             if ($homePage) {
                 $additionalDescriptionItems[] = $this->createLink($homePage, __('Homepage'));
             }
+            if ($linkText && $linkUrl) {
+                $additionalDescriptionItems[] = $this->createLink($linkUrl, __('linkText')); 
+            }
+            
         // Format this list to be added onto the input('description')
         $additionalDescription = "\n" . implode("\n", $additionalDescriptionItems);
 
