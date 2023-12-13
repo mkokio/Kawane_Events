@@ -103,5 +103,6 @@
     "Kawane Events": "川根イベント",
     "Before creating an event, please Log In or Register.": "イベントを作る前、アカウント作成かログインしてください。",
     "Update profile information?": "プロフィール情報を更新しますか？",
-    "This information will be publicly available on any future events that you create.": "この情報は、将来作成するすべてのイベントで公開されます。"
+    "This information will be publicly available on any future events that you create.": "この情報は、将来作成するすべてのイベントで公開されます。",
+    "URL for Event (Optional)": "イベントのURL（任意）"
 }
