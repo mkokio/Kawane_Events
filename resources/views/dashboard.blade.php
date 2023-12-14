@@ -67,13 +67,12 @@
                 <x-primary-button>{{ __('Submit') }}</x-primary-button>
 
             </form>
-
-            <div id="confirmationModal" class="modal" tabindex="-1">
+    <!--class="modal fade" doesn't work... why?-->
+            <div id="confirmationModal" class="modal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">{{ __('Create Event with these Details?') }}</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <strong>{{ __('Event Title') }}:</strong> <span id="event_title_placeholder"></span><br>
@@ -85,7 +84,7 @@
                         </div>
                         <div class="modal-footer">
                             <button id="confirmSubmit" class="btn btn-primary">{{ __('Create Event') }}</button>
-                            <button id="cancelSubmit" class="btn btn-secondary">{{ __('Cancel') }}</button>
+                            <button id="cancelSubmit" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('Cancel') }}</button>
                         </div>
                     </div>
                 </div>
@@ -121,14 +120,14 @@
     }
 
     .loading {
-        position: absolute;
+        position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         display: none; /* Hide the spinner initially */
     }
-    /* Media query for smaller screens */
-    @media (max-width: 768px) {
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
         .py-6 {
                 min-height: auto; /* Reset min-height for smaller screens */
             }

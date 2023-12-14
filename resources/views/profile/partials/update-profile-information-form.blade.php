@@ -121,9 +121,9 @@
                         @endif
                     </div>
                 @endif
-                
+                <!-- Button trigger modal -->
                 <div class="flex items-center gap-4">
-                    <x-primary-button id="saveButton">{{ __('Save') }}</x-primary-button>
+                    <x-primary-button id="saveButton" data-bs-toggle="modal" data-bs-target="#confirmationModal">{{ __('Save') }}</x-primary-button>
 
                     @if (session('status') === 'profile-updated')
                         <p
@@ -136,20 +136,18 @@
                     @endif
                 </div>
             </form>
-
-            <div id="confirmationModal" class="modal" tabindex="-1">
+            <div id="confirmationModal" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">{{ __('Update profile information?') }}</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                         {{ __('This information will be publicly available on any future events that you create.') }}
                         </div>
                         <div class="modal-footer">
                             <button id="confirmSubmit" class="btn btn-primary">{{ __('Save') }}</button>
-                            <button id="cancelSubmit" class="btn btn-secondary">{{ __('Cancel') }}</button>
+                            <button id="cancelSubmit" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('Cancel') }}</button>
                         </div>
                     </div>
                 </div>

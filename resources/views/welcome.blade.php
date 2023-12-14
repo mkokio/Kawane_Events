@@ -76,7 +76,7 @@
                             <a href="https://www.marccocchio.com" target="_blank" class="btn link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">&copy;2023 マーク</a>
                         </div>
                         <div>
-                            <button type="button" class="btn link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" data-bs-toggle="modal" data-bs-target="#imageModal">
+                            <button type="button" class="btn link-secondary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 {{ __('Donate') }}
                             </button>
                         </div>
@@ -88,9 +88,8 @@
                     -->
                 </div>
             </nav>
-                    
             <!-- Modal with just an image -->
-            <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+            <div class="modal fade" id="staticBackdrop" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-body text-center">
