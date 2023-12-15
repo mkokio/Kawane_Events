@@ -18,10 +18,10 @@
         <hr>
         <div class="text-center">
             <a href="{{ env('GOOGLE_CALENDAR_PUBLIC_URL') }}" target="_blank">
-                <img width="50%" class="mx-auto" src="{{ asset('KWElogoSmall.png') }}" alt="Kawane Events Calendar QR Code">
+                <img width="50%" class="mx-auto" src="{{ secure_asset('KWElogoSmall.png') }}" alt="Kawane Events Calendar QR Code">
             </a>
             <a href="{{ env('GOOGLE_CALENDAR_PUBLIC_URL') }}" target="_blank">
-                <img width="50%" class="mx-auto" src="{{ asset('KawaneEventsCalendarQR.png') }}" alt="Kawane Events Calendar QR Code">
+                <img width="50%" class="mx-auto" src="{{ secure_asset('KawaneEventsCalendarQR.png') }}" alt="Kawane Events Calendar QR Code">
             </a>
         </div>
 
