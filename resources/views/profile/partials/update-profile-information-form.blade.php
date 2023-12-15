@@ -76,7 +76,6 @@
                             @if (old('colors', $user->colors) == $i || ($i === 1 && $user->colors === null)) checked @endif
                         />
                         <label class="btn" style="background-color: {{ $colors[$i-1] }}; height: 100%;" for="color_{{ $i }}"></label>
-                        <!--<label class="btn" style="border-color: {{ $colors[$i-1] }};" for="color_{{ $i }}"></label> -->
                         @endfor
                     </div>
                 </div>          
@@ -121,7 +120,7 @@
                         @endif
                     </div>
                 @endif
-                <!-- Button trigger modal -->
+
                 <div class="flex items-center gap-4">
                     <x-primary-button id="saveButton" data-bs-toggle="modal" data-bs-target="#confirmationModal">{{ __('Save') }}</x-primary-button>
 
@@ -163,7 +162,6 @@
 <style>
     .confirmationModal {
         display: none;
-        /* Add other styling for the modal */
     }
 
     /* Spinner animation */
@@ -192,7 +190,7 @@
     }
     
 </style>
-<!-- FIX BELOW FOR MODAL TO WORK PROPERLY -->
+
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const form = document.getElementById('profile-form');
