@@ -81,14 +81,14 @@
                             </button>
                         </div>
                     </div>
-                    <!--
+                    <!-- Language switcher not available until logged in
                     <div class="float-right">
                         @include('partials/language_switcher')
                     </div>
                     -->
                 </div>
             </nav>
-            <!-- Modal with just an image -->
+
             <div class="modal fade" id="staticBackdrop" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
