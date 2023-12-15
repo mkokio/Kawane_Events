@@ -52,7 +52,7 @@
                 <x-text-input placeholder="小川公園" id="location" name="location" type="text" required autofocus autocomplete="location" />
                 <x-input-error class="mt-2" :messages="$errors->get('location')" />
             
-                <!-- NEEDS LOGIC, BACKEND, AND PERHAPS DATABASE -->
+                <!-- NOTE: neither link-url nor link-text get recorded to the DATABASE -->
                 <x-input-label for="event_url" value="{{ __('URL for Event (Optional)') }}" />
                 <div class="input-group">
                     <x-text-input class="col-sm-4" placeholder="リンクテキスト" id="link-text" name="link-text" type="text"/>
@@ -67,7 +67,7 @@
                 <x-primary-button id="saveButton" data-bs-toggle="modal" data-bs-target="#confirmationModal">{{ __('Submit') }}</x-primary-button>
 
             </form>
-    <!--class="modal fade" doesn't work... why?-->
+
             <div id="confirmationModal" class="modal fade" data-bs-backdrop="static" ata-bs-keyboard="false" tabindex="-1"  aria-labelledby="staticBackdropLabel"  aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
@@ -100,10 +100,9 @@
     <style>
     .confirmationModal {
     display: none;
-    /* Add other necessary styling for the modal */
 }
 
-    /* Define your breathing animation */
+    /* Breathing animation */
     @keyframes breathe {
         0%, 100% { transform: scale(0.4); }
         50% { transform: scale(1); }
