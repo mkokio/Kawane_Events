@@ -146,55 +146,63 @@
     */
 
     document.addEventListener("DOMContentLoaded", function () {
-        const form = document.getElementById('event-form');
-        const loading = document.getElementById('loading');
-        const confirmationModal = document.getElementById('confirmationModal');
-        const confirmSubmit = document.getElementById('confirmSubmit');
-        const cancelSubmit = document.getElementById('cancelSubmit');
-        const eventTitlePlaceholder = document.getElementById('event_title_placeholder');
-        const eventDescriptionPlaceholder = document.getElementById('description_placeholder');
-        const eventLocationPlaceholder = document.getElementById('location_placeholder');
-        const eventStartDatePlaceholder = document.getElementById('start_date_placeholder');
-        const eventStartTimePlaceholder = document.getElementById('start_time_placeholder');
-        const eventEndDatePlaceholder = document.getElementById('end_date_placeholder');
-        const eventEndTimePlaceholder = document.getElementById('end_time_placeholder');
-        const linkText = document.getElementById('link-text').value;
-        const linkUrl = document.getElementById('link-url').value;
-        const linkPlaceholder = document.getElementById('link_placeholder');
+    const form = document.getElementById('event-form');
+    const loading = document.getElementById('loading');
+    const confirmationModal = document.getElementById('confirmationModal');
+    const confirmSubmit = document.getElementById('confirmSubmit');
+    const cancelSubmit = document.getElementById('cancelSubmit');
+    const eventTitlePlaceholder = document.getElementById('event_title_placeholder');
+    const eventDescriptionPlaceholder = document.getElementById('description_placeholder');
+    const eventLocationPlaceholder = document.getElementById('location_placeholder');
+    const eventStartDatePlaceholder = document.getElementById('start_date_placeholder');
+    const eventStartTimePlaceholder = document.getElementById('start_time_placeholder');
+    const eventEndDatePlaceholder = document.getElementById('end_date_placeholder');
+    const eventEndTimePlaceholder = document.getElementById('end_time_placeholder');
+    const linkTextElement = document.getElementById('link-text');
+    const linkUrlElement = document.getElementById('link-url');
+    const linkPlaceholder = document.getElementById('link_placeholder');
 
-        if (form && confirmationModal && confirmSubmit && cancelSubmit && eventTitlePlaceholder && eventDescriptionPlaceholder && eventLocationPlaceholder) {
-            form.addEventListener('submit', function (event) {
-                event.preventDefault();
-                eventTitlePlaceholder.textContent = document.getElementById('event_title').value;
-                eventDescriptionPlaceholder.textContent = document.getElementById('description').value;
-                eventLocationPlaceholder.textContent = document.getElementById('location').value;
-                eventStartDatePlaceholder.textContent = document.getElementById('start_date').value;
-                eventStartTimePlaceholder.textContent = document.getElementById('start_time').value;
-                eventEndDatePlaceholder.textContent = document.getElementById('end_date').value;
-                eventEndTimePlaceholder.textContent = document.getElementById('end_time').value;
-                confirmationModal.style.display = 'block';
-                linkPlaceholder.textContent = linkText;
-                linkPlaceholder.href = linkUrl;
-            });
+    if (form && confirmationModal && confirmSubmit && cancelSubmit && eventTitlePlaceholder && eventDescriptionPlaceholder && eventLocationPlaceholder) {
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            eventTitlePlaceholder.textContent = document.getElementById('event_title').value;
+            eventDescriptionPlaceholder.textContent = document.getElementById('description').value;
+            eventLocationPlaceholder.textContent = document.getElementById('location').value;
+            eventStartDatePlaceholder.textContent = document.getElementById('start_date').value;
+            eventStartTimePlaceholder.textContent = document.getElementById('start_time').value;
+            eventEndDatePlaceholder.textContent = document.getElementById('end_date').value;
+            eventEndTimePlaceholder.textContent = document.getElementById('end_time').value;
+            confirmationModal.style.display = 'block';
 
-            confirmSubmit.addEventListener('click', function() {
-                loading.style.display = 'block';
-                confirmationModal.style.display = 'none';
+            const linkText = linkTextElement.value;
+            const linkUrl = linkUrlElement.value;
 
+            linkPlaceholder.textContent = linkText;
+            linkPlaceholder.href = linkUrl;
+        });
 
-                setTimeout(function () {
-                    form.submit();
-                }, 500);
-            });
+        confirmSubmit.addEventListener('click', function() {
+            const linkText = linkTextElement.value;
+            const linkUrl = linkUrlElement.value;
 
-            cancelSubmit.addEventListener('click', function() {
-                confirmationModal.style.display = 'none';
-            });
-        } else {
-            console.error('Some elements are missing.');
-        }
-    });
+            linkPlaceholder.textContent = linkText;
+            linkPlaceholder.href = linkUrl;
 
+            loading.style.display = 'block';
+            confirmationModal.style.display = 'none';
+
+            setTimeout(function () {
+                form.submit();
+            }, 500);
+        });
+
+        cancelSubmit.addEventListener('click', function() {
+            confirmationModal.style.display = 'none';
+        });
+    } else {
+        console.error('Some elements are missing.');
+    }
+});
 
     </script>
 </x-app-layout>
