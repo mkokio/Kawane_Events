@@ -155,7 +155,7 @@
 
             <div id="loading" class="loading">
                 <div class="spinner">
-                    <img src="{{ asset('logo80.png') }}" alt="Saving Profile..." class="spin-image" />
+                    <img src="{{ secure_asset('logo80.png') }}" alt="Saving Profile..." class="spin-image" />
                 </div>
             </div>
 </section>
