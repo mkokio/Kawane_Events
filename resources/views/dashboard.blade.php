@@ -64,11 +64,11 @@
                     -->
                 </div>
 
-                <x-primary-button>{{ __('Submit') }}</x-primary-button>
+                <x-primary-button id="saveButton" data-bs-toggle="modal" data-bs-target="#confirmationModal">{{ __('Submit') }}</x-primary-button>
 
             </form>
     <!--class="modal fade" doesn't work... why?-->
-            <div id="confirmationModal" class="modal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div id="confirmationModal" class="modal fade" data-bs-backdrop="static" ata-bs-keyboard="false" tabindex="-1"  aria-labelledby="staticBackdropLabel"  aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -162,8 +162,8 @@
     const linkUrlElement = document.getElementById('link-url');
     const linkPlaceholder = document.getElementById('link_placeholder');
 
-    if (form && confirmationModal && confirmSubmit && cancelSubmit && eventTitlePlaceholder && eventDescriptionPlaceholder && eventLocationPlaceholder) {
-        form.addEventListener('submit', function (event) {
+    if (saveButton && confirmationModal && confirmSubmit && cancelSubmit && eventTitlePlaceholder && eventDescriptionPlaceholder && eventLocationPlaceholder && loading) {
+        saveButton.addEventListener('click', function (event) {
             event.preventDefault();
             eventTitlePlaceholder.textContent = document.getElementById('event_title').value;
             eventDescriptionPlaceholder.textContent = document.getElementById('description').value;
