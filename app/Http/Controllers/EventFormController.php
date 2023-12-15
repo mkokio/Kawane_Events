@@ -59,7 +59,7 @@ class EventFormController extends Controller
             'location' => 'required|max:200', // Location is required and a maximum of 200 characters.
         ]);
     
-        // YStore the validated data in the database
+        // Store the validated data in the database
         $request->user()->eventforms()->create($validated);
         // user() is from Laravel's built-in authentication system; user must be logged in
         // ->eventforms() has a relationship of "BelongsTo" with the user model
