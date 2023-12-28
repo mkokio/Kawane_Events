@@ -105,7 +105,7 @@ class EventFormController extends Controller
                 $additionalDescriptionItems[] = $this->createLink($homePage, __('Homepage'));
             }
             if ($linkText && $linkUrl) {
-                $additionalDescriptionItems[] = $this->createLink($linkUrl, __('linkText')); 
+                $additionalDescriptionItems[] = $this->createLink($linkUrl, __($linkText)); 
             }
             
         // Format this list to be added onto the input('description')
