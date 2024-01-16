@@ -16,10 +16,16 @@ class EventFormController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index():view
+    public function index(): view
     {
-        return view('eventforms.index');
+        $events = EventForm::with('user')->where('user_id', auth()->id())->latest()->get();
+
+        return view('eventforms.index', [
+            'events' => $events,
+        ]);
     }
+    // ABOVE: use Eloquent's with() method to 'eager-load' every event associated user.
+    // use the latest() scope to return the records in reverse-chrono order
 
     /**
      * Show the form for creating a new resource.

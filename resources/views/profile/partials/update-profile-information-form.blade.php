@@ -63,7 +63,7 @@
                 @endphp
 
                 <div>
-                    <x-input-label for="color" :value="__('Color Selector for you Events')" /><br />
+                    <x-input-label for="color" :value="__('Color Selector for your events')" /><br />
                     <div class="btn-group btn-group-lg" role="group" aria-label="Basic mixed styles example" style="height: 35px;">
                         @for ($i = 1; $i <= 10; $i++)
                         <input type="radio"
