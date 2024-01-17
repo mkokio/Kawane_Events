@@ -127,6 +127,8 @@ class EventFormController extends Controller
         $startDateTime = $startDate->copy()->setTime($startTime->hour, $startTime->minute, $startTime->second);
         $endDateTime = $endDate->copy()->setTime($endTime->hour, $endTime->minute, $endTime->second);
         
+        
+        /*This is creating the event statically
         Event::create([
             'name' => $request->input('event_title'), 
             'startDateTime' => $startDateTime,
@@ -135,7 +137,18 @@ class EventFormController extends Controller
             'colorId' => $selectedcolor,
             'visibility' => 'default',
             'status' => 'confirmed',
-        ]);
+        ]); 
+        */
+
+        $event = new Event;
+        $event->name = $request->input('event_title');
+        $event->startDateTime = $startDateTime;
+        $event->endDateTime = $endDateTime;
+        $event->description = $request->input('description') . $additionalDescription;
+        $event->setColorId($selectedcolor);
+        
+        $event->save();
+        //echo $event->id; // display the event id
 
         // Redirect to a success page or wherever you need to go after storing the data.
         return redirect()->route('eventcreatesuccess');
