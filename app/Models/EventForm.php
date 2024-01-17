@@ -29,7 +29,7 @@ class EventForm extends Model
         'end_time',
         'description',
         'location',
-        'google_calendar_id', //add this line
+        'google_calendar_id',
     ];
     
 }
