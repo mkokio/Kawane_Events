@@ -127,7 +127,6 @@ class EventFormController extends Controller
         $startDateTime = $startDate->copy()->setTime($startTime->hour, $startTime->minute, $startTime->second);
         $endDateTime = $endDate->copy()->setTime($endTime->hour, $endTime->minute, $endTime->second);
         
-        
         /* Static Approach
         Event::create([
             'name' => $request->input('event_title'), 
@@ -148,8 +147,17 @@ class EventFormController extends Controller
         $event->description = $request->input('description') . $additionalDescription;
         $event->setColorId($selectedcolor);
         
-        $event->save();
-        echo $event->id; // display the event id
+        $newEvent = $event->save();
+
+        // Retrieve Google Calendar event ID
+        $googleEventId = $newEvent->id;
+
+        // Retrieve the newly created (latest) EventForm instance
+        $eventForm = $request->user()->eventforms()->latest()->first();
+
+        // Assign the Google Calendar ID to the EventForm instance
+        $eventForm->google_calendar_id = $googleEventId;
+        $eventForm->save();
 
         // Redirect to a success page or wherever you need to go after storing the data.
         return redirect()->route('eventcreatesuccess');
