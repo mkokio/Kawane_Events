@@ -65,7 +65,6 @@ class EventFormController extends Controller
         // ->eventforms() has a relationship of "BelongsTo" with the user model
         // ->create($validated) creates a new event form record in the database of authenticated user.
 
-
         // Fetch the user's info from the authenticated user
         $user = $request->user();
         $businessName = $user->business_name;
@@ -121,7 +120,7 @@ class EventFormController extends Controller
         $startDateTime = $startDate->copy()->setTime($startTime->hour, $startTime->minute, $startTime->second);
         $endDateTime = $endDate->copy()->setTime($endTime->hour, $endTime->minute, $endTime->second);
         
-        /* Static Approach
+        /* Static-Based Approach
         Event::create([
             'name' => $request->input('event_title'), 
             'startDateTime' => $startDateTime,
