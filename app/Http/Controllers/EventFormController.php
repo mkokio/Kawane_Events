@@ -18,11 +18,13 @@ class EventFormController extends Controller
      */
     public function index(): view
     {
-        $events = EventForm::with('user')->where('user_id', auth()->id())->latest()->get();
+        $events = auth()->user()->eventforms()->latest()->get(['id', 'event_title', 'description', 'start_date', 'google_calendar_id']);
+        //dd($events);
+        
+        return view('myevents', compact('events'));
 
-        return view('eventforms.index', [
-            'events' => $events,
-        ]);
+    // Use eloquent's 'with' method to 'eager-load' every event associated with the user.
+    // Use the 'latest' scope to return the records in reverse-chronological order.
     }
     // ABOVE: use Eloquent's with() method to 'eager-load' every event associated user.
     // use the latest() scope to return the records in reverse-chrono order
