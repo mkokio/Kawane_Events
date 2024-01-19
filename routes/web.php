@@ -49,9 +49,9 @@ Route::middleware('auth')->group(function () {
 
     // Because we are using a resource controller, one single Route::resource statement
     // defines all routes with a conventional URL structure
-    //Route::resource('eventforms', EventFormController::class)
-    //    ->only(['index', 'store', 'edit', 'update', 'destroy'])
-    //    ->middleware(['auth', 'verified']);
+    Route::resource('eventforms', EventFormController::class)
+        ->only(['store'])
+        ->middleware(['auth', 'verified']);
 
     // Email verification
     Route::get('/email/verify', function () {
