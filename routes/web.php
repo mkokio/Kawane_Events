@@ -32,6 +32,10 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    //Route::delete('/eventforms/{eventform}', [EventFormController::class, 'deleteEvent'])->name('delete-event');
+    Route::delete('/eventforms/{eventForm}', [EventFormController::class, 'destroy'])->name('eventforms.destroy');
+
+
     Route::get('/myevents', [EventFormController::class, 'index'])->name('myevents');
 
     // Route for the success screen
@@ -45,9 +49,9 @@ Route::middleware('auth')->group(function () {
 
     // Because we are using a resource controller, one single Route::resource statement
     // defines all routes with a conventional URL structure
-    Route::resource('eventforms', EventFormController::class)
-        ->only(['index', 'store', 'edit', 'update', 'destroy'])
-        ->middleware(['auth', 'verified']);
+    //Route::resource('eventforms', EventFormController::class)
+    //    ->only(['index', 'store', 'edit', 'update', 'destroy'])
+    //    ->middleware(['auth', 'verified']);
 
     // Email verification
     Route::get('/email/verify', function () {

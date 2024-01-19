@@ -18,7 +18,7 @@ class EventFormController extends Controller
      */
     public function index(): view
     {
-        $events = auth()->user()->eventforms()->latest()->get(['id', 'event_title', 'description', 'start_date', 'google_calendar_id']);
+        $events = auth()->user()->eventforms()->latest()->get(['id', 'event_title', 'description', 'start_date', 'google_calendar_id', 'user_id']);
         //dd($events);
         
         return view('myevents', compact('events'));
@@ -193,6 +193,19 @@ class EventFormController extends Controller
      */
     public function destroy(EventForm $eventForm)
     {
-        //
+        // Check if the authenticated user is the owner of the event
+        if (auth()->user()->id !== $eventForm->user_id) {
+            abort(403); // Or any other action you want to take if the user is not authorized
+        }
+
+        // Delete the event from Google Calendar using Spatie package
+        Event::find($eventForm->google_calendar_id)->delete();
+
+        // Update the event in the database (set google_calendar_id to NULL)
+        $eventForm->update(['google_calendar_id' => null]);
+
+        // Redirect back or to a specific page after deletion
+        return redirect()->back()->with('success', 'Event deleted successfully');
     }
+    
 }

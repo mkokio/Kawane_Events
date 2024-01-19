@@ -104,5 +104,13 @@
     "Before creating an event, please Log In or Register.": "イベントを作る前、アカウント作成かログインしてください。",
     "Update profile information?": "プロフィール情報を更新しますか？",
     "This information will be publicly available on any future events that you create.": "この情報は、将来作成するすべてのイベントで公開されます。",
-    "URL for Event (Optional)": "イベントのURL（任意）"
+    "URL for Event (Optional)": "イベントのURL（任意）",
+    "My Events": "私のイベント",
+    "Would you like to make a ": "新しいイベントを",
+    "new event?": "作りましょうか",
+    "Here is a list of events which you have created.": "あなたが作成したイベントのリストです。",
+    "Delete": "削除",
+    "Are you sure?": "本当によろしいですか？",
+    "This will remove your event from the Google Calendar. This cannot be undone.": "これにより、イベントがGoogleカレンダーから削除されます。これは元に戻せません。",
+    "Delete Event": "イベントを削除"
 }
