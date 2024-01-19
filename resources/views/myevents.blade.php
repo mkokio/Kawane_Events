@@ -63,14 +63,10 @@
                         @endif
                     @endforeach
                 </div>
-                
-        
-                
-                  
-
+    
         <div id="loading" class="loading">
             <div class="spinner">
-                <img src="{{ 'logo80.png' }}" alt="Deleting Event..." class="spin-image" />
+                <img src="{{ secure_asset('logo80.png') }}" alt="Deleting Event..." class="spin-image" />
             </div>
         </div>
 
@@ -86,7 +82,7 @@
     0%, 100% {
         transform: scale(0);
     }
-    50% {
+    5% {
         transform: scale(1.2);
     }
     }
@@ -112,15 +108,26 @@
     
     </style>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var deleteForm = document.getElementById('delete-form');
-            var loadingSpinner = document.getElementById('loading');
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var deleteForm = document.getElementById('delete-form');
+        const loadingSpinner = document.getElementById('loading');
+        var modal = new bootstrap.Modal(document.getElementById('staticBackdrop')); 
 
-            deleteForm.addEventListener('submit', function () {
-                // Show the loading spinner when the form is submitted
-                loadingSpinner.style.display = 'block';
-            });
+        deleteForm.addEventListener('submit', function (event) {
+            // Prevent the form from submitting immediately
+            event.preventDefault();
+
+            // Show the loading spinner
+            loadingSpinner.style.display = 'block';
+
+            // Hide the modal
+            modal.hide();
+
+            // Now you can submit the form
+            deleteForm.submit();
         });
-    </script>
+    });
+</script>
+
 </x-app-layout>
