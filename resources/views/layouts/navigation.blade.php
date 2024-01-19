@@ -13,6 +13,7 @@
             
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                 <li><a class="dropdown-item" href="{{ route('dashboard') }}">{{ __('Create Event') }}</a></li>
+                <li><a class="dropdown-item" href="{{ route('myevents') }}">{{ __('My Events') }}</a></li>
                 <li><a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Profile') }}</a></li>
                 <li>
                     <form method="POST" action="{{ route('logout') }}">
